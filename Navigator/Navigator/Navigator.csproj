@@ -133,6 +133,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\DataModels\Building.cs" />
+    <Compile Include="Models\DataModels\Level.cs" />
+    <Compile Include="Models\DataModels\Node.cs" />
+    <Compile Include="Models\DataModels\Object.cs" />
+    <Compile Include="Models\DataModels\TypeObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -277,7 +282,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\DataModels\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

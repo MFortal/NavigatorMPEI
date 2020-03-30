@@ -84,3 +84,7 @@ C:\Users\epoly\source\repos\NavigatorMPEI\Navigator\Navigator\obj\Debug\Navigato
 C:\Users\epoly\source\repos\NavigatorMPEI\Navigator\Navigator\obj\Debug\Navigator.csproj.CopyComplete
 C:\Users\epoly\source\repos\NavigatorMPEI\Navigator\Navigator\obj\Debug\Navigator.dll
 C:\Users\epoly\source\repos\NavigatorMPEI\Navigator\Navigator\obj\Debug\Navigator.pdb
+C:\Users\epoly\source\repos\NavigatorMPEI\Navigator\Navigator\bin\EntityFramework.dll
+C:\Users\epoly\source\repos\NavigatorMPEI\Navigator\Navigator\bin\EntityFramework.SqlServer.dll
+C:\Users\epoly\source\repos\NavigatorMPEI\Navigator\Navigator\bin\EntityFramework.xml
+C:\Users\epoly\source\repos\NavigatorMPEI\Navigator\Navigator\bin\EntityFramework.SqlServer.xml
