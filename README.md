@@ -1,2 +1,2 @@
-# mashfort-yandex.ru
-NavigatorMPEI
+# NavigatorMPEI
+
