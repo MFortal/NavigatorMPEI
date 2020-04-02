@@ -137,7 +137,7 @@
     <Compile Include="Models\DataModels\Level.cs" />
     <Compile Include="Models\DataModels\NavigatorContext.cs" />
     <Compile Include="Models\DataModels\Node.cs" />
-    <Compile Include="Models\DataModels\Object.cs" />
+    <Compile Include="Models\DataModels\Item.cs" />
     <Compile Include="Models\DataModels\TypeObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

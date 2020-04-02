@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Navigator.Models.DataModels
 {
-    public class Object
+    public class Item
     {
         public int Id { get; set; }
 
@@ -14,7 +14,7 @@ namespace Navigator.Models.DataModels
         public string Number { get; set; }
 
 
-        public virtual ICollection<Object> Objects { get; set; }
+        public virtual ICollection<Item> Items { get; set; }
         
         [Required]
         public virtual Level Level { get; set; }
@@ -23,7 +23,7 @@ namespace Navigator.Models.DataModels
         public virtual Building Building { get; set; }
         
         [Required]
-        public virtual TypeObject TypeObject { get; set; }
+        public virtual TypeItem TypeItem { get; set; }
 
         [Required]
         public virtual Node Node { get; set; }

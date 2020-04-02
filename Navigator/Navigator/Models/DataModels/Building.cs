@@ -12,6 +12,6 @@ namespace Navigator.Models.DataModels
 
 
         [Required]
-        public virtual ICollection<Object> Objects { get; set; }
+        public virtual ICollection<Item> Items { get; set; }
     }
 }

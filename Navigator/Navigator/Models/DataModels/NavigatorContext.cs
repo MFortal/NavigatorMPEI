@@ -15,8 +15,8 @@ namespace Navigator.Models.DataModels
         public DbSet<Building> Buildings { get; set; }
         public DbSet<Level> Levels { get; set; }
         public DbSet<Node> Nodes { get; set; }
-        public DbSet<Object> Objects { get; set; }
-        public DbSet<TypeObject> TypeObjects { get; set; }
+        public DbSet<Item> Items { get; set; }
+        public DbSet<TypeItem> TypeItems { get; set; }
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -25,7 +25,7 @@ namespace Navigator.Models.DataModels
 
             modelBuilder.Entity<Level>().HasIndex(x => x.Name).IsUnique();
             modelBuilder.Entity<Building>().HasIndex(x => x.Name).IsUnique();
-            modelBuilder.Entity<TypeObject>().HasIndex(x => x.Name).IsUnique();
+            modelBuilder.Entity<TypeItem>().HasIndex(x => x.Name).IsUnique();
         }
 
 

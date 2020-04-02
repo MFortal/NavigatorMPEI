@@ -13,6 +13,6 @@ namespace Navigator.Models.DataModels
         public virtual ICollection<Node> Nodes { get; set; }
 
         [Required]
-        public virtual ICollection<Object> Objects { get; set; }
+        public virtual ICollection<Item> Items { get; set; }
     }
 }
