@@ -8,7 +8,7 @@ namespace Navigator.Models.DataModels
 {
     public class NavigatorContext : DbContext
     {
-        public NavigatorContext() : base("NavigatorContext")
+        public NavigatorContext() : base("NavigatorConnection")
             {
             }
 
@@ -21,11 +21,10 @@ namespace Navigator.Models.DataModels
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);
-
-            modelBuilder.Entity<Level>().HasIndex(x => x.Name).IsUnique();
-            modelBuilder.Entity<Building>().HasIndex(x => x.Name).IsUnique();
-            modelBuilder.Entity<TypeItem>().HasIndex(x => x.Name).IsUnique();
+            //base.OnModelCreating(modelBuilder);
+            //modelBuilder.Entity<Level>().HasIndex(x => x.Name).IsUnique();
+            //modelBuilder.Entity<Building>().HasIndex(x => x.Name).IsUnique();
+            //modelBuilder.Entity<TypeItem>().HasIndex(x => x.Name).IsUnique();
         }
 
 

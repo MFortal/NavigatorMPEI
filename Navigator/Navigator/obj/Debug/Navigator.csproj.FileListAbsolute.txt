@@ -88,3 +88,6 @@ C:\Users\epoly\source\repos\NavigatorMPEI\Navigator\Navigator\bin\EntityFramewor
 C:\Users\epoly\source\repos\NavigatorMPEI\Navigator\Navigator\bin\EntityFramework.SqlServer.dll
 C:\Users\epoly\source\repos\NavigatorMPEI\Navigator\Navigator\bin\EntityFramework.xml
 C:\Users\epoly\source\repos\NavigatorMPEI\Navigator\Navigator\bin\EntityFramework.SqlServer.xml
+C:\Users\epoly\source\repos\NavigatorMPEI\Navigator\Navigator\obj\Debug\Navigator.Migrations.Migratio.resources
+C:\Users\epoly\source\repos\NavigatorMPEI\Navigator\Navigator\obj\Debug\Navigator.csproj.GenerateResource.cache
+C:\Users\epoly\source\repos\NavigatorMPEI\Navigator\Navigator\obj\Debug\Navigator.Migrations.Fix.resources

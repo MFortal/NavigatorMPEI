@@ -133,6 +133,15 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202004021610388_Migratio.cs" />
+    <Compile Include="Migrations\202004021610388_Migratio.designer.cs">
+      <DependentUpon>202004021610388_Migratio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004021619392_Fix.cs" />
+    <Compile Include="Migrations\202004021619392_Fix.designer.cs">
+      <DependentUpon>202004021619392_Fix.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DataModels\Building.cs" />
     <Compile Include="Models\DataModels\Level.cs" />
     <Compile Include="Models\DataModels\NavigatorContext.cs" />
@@ -294,6 +303,14 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202004021610388_Migratio.resx">
+      <DependentUpon>202004021610388_Migratio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004021619392_Fix.resx">
+      <DependentUpon>202004021619392_Fix.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
