@@ -148,6 +148,7 @@
     <Compile Include="Models\DataModels\Node.cs" />
     <Compile Include="Models\DataModels\Item.cs" />
     <Compile Include="Models\DataModels\TypeObject.cs" />
+    <Compile Include="Models\Sourceseed\LevelsInitializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
