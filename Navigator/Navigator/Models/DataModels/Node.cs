@@ -8,11 +8,11 @@ namespace Navigator.Models.DataModels
         public int Id { get; set; }
         public int X { get; set; }
         public int Y { get; set; }
+        public int? NextId { get; set; }
 
         
-        public virtual ICollection<Node> Nodes { get; set; }
+        public virtual Node Nodes { get; set; }
 
-        [Required]
         public virtual ICollection<Item> Items { get; set; }
     }
 }

@@ -12,20 +12,20 @@ namespace Navigator.Models.DataModels
         public bool? Repaired { get; set; }
 
         public string Number { get; set; }
+        public int LevelId { get; set; }
+        public int BuildingId { get; set; }
+        public int TypeItemId { get; set; }
+        public int NodeId { get; set; }
 
 
         public virtual ICollection<Item> Items { get; set; }
         
-        [Required]
         public virtual Level Level { get; set; }
 
-        [Required]
         public virtual Building Building { get; set; }
         
-        [Required]
         public virtual TypeItem TypeItem { get; set; }
 
-        [Required]
         public virtual Node Node { get; set; }
     }
 }

@@ -10,7 +10,7 @@ namespace Navigator.Models.DataModels
         public int Name { get; set; }
 
 
-        [Required]
+
         public virtual ICollection<Item> Items { get; set; }
     }
 }

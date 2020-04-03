@@ -141,6 +141,10 @@
     <Compile Include="Migrations\202004021619392_Fix.designer.cs">
       <DependentUpon>202004021619392_Fix.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202004031539072_AddFields.cs" />
+    <Compile Include="Migrations\202004031539072_AddFields.designer.cs">
+      <DependentUpon>202004031539072_AddFields.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DataModels\Building.cs" />
     <Compile Include="Models\DataModels\Level.cs" />
@@ -148,7 +152,11 @@
     <Compile Include="Models\DataModels\Node.cs" />
     <Compile Include="Models\DataModels\Item.cs" />
     <Compile Include="Models\DataModels\TypeItem.cs" />
-    <Compile Include="Models\Sourceseed\LevelsInitializer.cs" />
+    <Compile Include="Models\SourceSeed\BuildingInitializer.cs" />
+    <Compile Include="Models\SourceSeed\ItemInitializer.cs" />
+    <Compile Include="Models\SourceSeed\LevelInitializer.cs" />
+    <Compile Include="Models\SourceSeed\NodeInitializer.cs" />
+    <Compile Include="Models\SourceSeed\TypeItemInitializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -311,6 +319,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202004021619392_Fix.resx">
       <DependentUpon>202004021619392_Fix.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004031539072_AddFields.resx">
+      <DependentUpon>202004031539072_AddFields.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

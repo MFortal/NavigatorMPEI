@@ -11,7 +11,6 @@ namespace Navigator.Models.DataModels
         public string Name { get; set; }
 
 
-        [Required]
         public virtual ICollection<Item> Items { get; set; }
     }
 }

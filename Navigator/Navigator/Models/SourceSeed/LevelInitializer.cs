@@ -1,15 +1,14 @@
 ﻿using Navigator.Models.DataModels;
 
-namespace Navigator.Models.Sourceseed
+namespace Navigator.Models.SourceSeed
 {
-    public class LevelsInitializer
+    public class LevelInitializer
     {
         public static Level[] Initialize()
         {
             return new Level[]
             {
-                new Level{Id=1, Name=1},
-                new Level{Id=2, Name=2}
+                new Level{Id=1, Name=1}
             };
         }
     }
