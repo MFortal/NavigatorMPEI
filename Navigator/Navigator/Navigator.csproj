@@ -157,6 +157,8 @@
     <Compile Include="Models\SourceSeed\LevelInitializer.cs" />
     <Compile Include="Models\SourceSeed\NodeInitializer.cs" />
     <Compile Include="Models\SourceSeed\TypeItemInitializer.cs" />
+    <Compile Include="Models\ViewModels\ItemsLevel.cs" />
+    <Compile Include="Models\ViewModels\MapViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
