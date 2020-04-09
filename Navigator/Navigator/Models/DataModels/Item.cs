@@ -9,9 +9,8 @@ namespace Navigator.Models.DataModels
 
         public string Description { get; set; }
 
-        public bool? Repaired { get; set; }
-
         public string Number { get; set; }
+        public int RepairId { get; set; }
         public int LevelId { get; set; }
         public int BuildingId { get; set; }
         public int TypeItemId { get; set; }
@@ -21,6 +20,7 @@ namespace Navigator.Models.DataModels
         public virtual ICollection<Item> Items { get; set; }
         
         public virtual Level Level { get; set; }
+        public virtual Repair Repair { get; set; }
 
         public virtual Building Building { get; set; }
         

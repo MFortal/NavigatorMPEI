@@ -93,3 +93,4 @@ C:\Users\epoly\source\repos\NavigatorMPEI\Navigator\Navigator\obj\Debug\Navigato
 C:\Users\epoly\source\repos\NavigatorMPEI\Navigator\Navigator\obj\Debug\Navigator.Migrations.Fix.resources
 C:\Users\epoly\source\repos\NavigatorMPEI\Navigator\Navigator\obj\Debug\Navigator.Migrations.AddFields.resources
 C:\Users\epoly\source\repos\NavigatorMPEI\Navigator\Navigator\obj\Debug\Navigator.Migrations.SingularTableName.resources
+C:\Users\epoly\source\repos\NavigatorMPEI\Navigator\Navigator\obj\Debug\Navigator.Migrations.AddTableRepair.resources

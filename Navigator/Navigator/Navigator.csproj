@@ -149,12 +149,17 @@
     <Compile Include="Migrations\202004091602552_SingularTableName.designer.cs">
       <DependentUpon>202004091602552_SingularTableName.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202004091607284_AddTableRepair.cs" />
+    <Compile Include="Migrations\202004091607284_AddTableRepair.designer.cs">
+      <DependentUpon>202004091607284_AddTableRepair.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DataModels\Building.cs" />
     <Compile Include="Models\DataModels\Level.cs" />
     <Compile Include="Models\DataModels\NavigatorContext.cs" />
     <Compile Include="Models\DataModels\Node.cs" />
     <Compile Include="Models\DataModels\Item.cs" />
+    <Compile Include="Models\DataModels\Repair.cs" />
     <Compile Include="Models\DataModels\TypeItem.cs" />
     <Compile Include="Models\SourceSeed\BuildingInitializer.cs" />
     <Compile Include="Models\SourceSeed\ItemInitializer.cs" />
@@ -331,6 +336,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202004091602552_SingularTableName.resx">
       <DependentUpon>202004091602552_SingularTableName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004091607284_AddTableRepair.resx">
+      <DependentUpon>202004091607284_AddTableRepair.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
