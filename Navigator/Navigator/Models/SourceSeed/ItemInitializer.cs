@@ -18,13 +18,13 @@ namespace Navigator.Models.SourceSeed
                 //new Item{Id=8, LevelId=1, BuildingId=1, TypeItemId=8, NodeId=8},
                
                 //границы
-                new Item{Id=9, LevelId=1, BuildingId=1, TypeItemId=2, NodeId=9},
+                new Item{Id=9, LevelId=1, BuildingId=1, TypeItemId=2, NodeId=9, RepairId=2},
                 //new Item{Id=10, LevelId=1, BuildingId=1, TypeItemId=2, NodeId=10},
                 //new Item{Id=11, LevelId=1, BuildingId=1, TypeItemId=2, NodeId=11},
                 //new Item{Id=12, LevelId=1, BuildingId=1, TypeItemId=2, NodeId=12},
 
                 //кабинет 4
-                new Item{Id=13, LevelId=1, BuildingId=1, TypeItemId=1, Number="4", NodeId=13},
+                new Item{Id=13, LevelId=1, BuildingId=1, TypeItemId=1, Number="4", NodeId=13, RepairId=2},
                 //new Item{Id=14, LevelId=1, BuildingId=1, TypeItemId=9, NodeId=14},
                 //new Item{Id=15, LevelId=1, BuildingId=1, TypeItemId=9, NodeId=15},
                 //new Item{Id=16, LevelId=1, BuildingId=1, TypeItemId=9, NodeId=16},

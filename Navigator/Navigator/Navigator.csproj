@@ -165,6 +165,7 @@
     <Compile Include="Models\SourceSeed\ItemInitializer.cs" />
     <Compile Include="Models\SourceSeed\LevelInitializer.cs" />
     <Compile Include="Models\SourceSeed\NodeInitializer.cs" />
+    <Compile Include="Models\SourceSeed\RepairInitializer.cs" />
     <Compile Include="Models\SourceSeed\TypeItemInitializer.cs" />
     <Compile Include="Models\ViewModels\ItemsLevel.cs" />
     <Compile Include="Models\ViewModels\MapViewModel.cs" />

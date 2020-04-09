@@ -14,6 +14,7 @@ namespace Navigator.Models.DataModels
         public DbSet<Node> Nodes { get; set; }
         public DbSet<Item> Items { get; set; }
         public DbSet<TypeItem> TypeItems { get; set; }
+        public DbSet<Repair> Repairs { get; set; }
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

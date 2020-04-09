@@ -9,7 +9,6 @@ namespace Navigator.Models.DataModels
         public int Y { get; set; }
         public int? NextId { get; set; }
 
-        
         public virtual Node Nodes { get; set; }
 
         public virtual ICollection<Item> Items { get; set; }
