@@ -1,4 +1,5 @@
 ﻿using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration.Conventions;
 
 namespace Navigator.Models.DataModels
 {
@@ -17,6 +18,7 @@ namespace Navigator.Models.DataModels
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
             //base.OnModelCreating(modelBuilder);
             //modelBuilder.Entity<Level>().HasIndex(x => x.Name).IsUnique();
             //modelBuilder.Entity<Building>().HasIndex(x => x.Name).IsUnique();
