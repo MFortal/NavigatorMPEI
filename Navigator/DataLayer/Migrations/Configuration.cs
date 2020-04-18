@@ -1,7 +1,7 @@
-﻿namespace Navigator.Migrations
+﻿namespace DataLayer.Migrations
 {
-    using Navigator.Models.DataModels;
-    using Navigator.Models.SourceSeed;
+    using DataLayer.Models;
+    using DataLayer.Models.SourceSeed;
     using System;
     using System.Data.Entity.Migrations;
     using System.Data.Entity.Validation;

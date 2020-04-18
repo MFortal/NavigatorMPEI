@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Navigator.Models.DataModels
+namespace DataLayer.Models.DataModels
 {
     public class Repair
     {

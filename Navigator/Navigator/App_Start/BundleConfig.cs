@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace Navigator
+namespace DataLayer
 {
     public class BundleConfig
     {

@@ -175,7 +175,6 @@ D:\Source\Repos\NavigatorMPEI\Navigator\Navigator\bin\ru\System.Web.Razor.resour
 D:\Source\Repos\NavigatorMPEI\Navigator\Navigator\bin\ru\System.Web.WebPages.resources.dll
 D:\Source\Repos\NavigatorMPEI\Navigator\Navigator\bin\ru\System.Web.WebPages.Deployment.resources.dll
 D:\Source\Repos\NavigatorMPEI\Navigator\Navigator\bin\ru\System.Web.WebPages.Razor.resources.dll
-D:\Source\Repos\NavigatorMPEI\Navigator\Navigator\obj\Debug\Navigator.csprojAssemblyReference.cache
 D:\Source\Repos\NavigatorMPEI\Navigator\Navigator\obj\Debug\Navigator.csproj.CoreCompileInputs.cache
 D:\Source\Repos\NavigatorMPEI\Navigator\Navigator\obj\Debug\Navigator.csproj.CopyComplete
 D:\Source\Repos\NavigatorMPEI\Navigator\Navigator\obj\Debug\Navigator.dll

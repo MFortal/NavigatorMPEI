@@ -1,15 +1,19 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Navigator.Models.DataModels
+namespace DataLayer.Models.DataModels
 {
     public class Node
     {
         public int Id { get; set; }
-        public int X { get; set; }
-        public int Y { get; set; }
-        public int? NextId { get; set; }
 
-        public virtual Node Nodes { get; set; }
+        public int X { get; set; }
+
+        public int Y { get; set; }
+
+        [ForeignKey("NextNode")]
+        public int? NextNodeId { get; set; }
+        public virtual Node NextNode { get; set; }
 
         public virtual ICollection<Item> Items { get; set; }
     }

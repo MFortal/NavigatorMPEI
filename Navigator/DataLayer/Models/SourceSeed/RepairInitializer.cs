@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using Navigator.Models.DataModels;
+﻿using DataLayer.Models.DataModels;
 
-namespace Navigator.Models.SourceSeed
+namespace DataLayer.Models.SourceSeed
 {
     public class RepairInitializer
     {
@@ -13,7 +9,7 @@ namespace Navigator.Models.SourceSeed
             return new Repair[]
             {
                 new Repair{Id=1, Name=0},
-                new Repair{Id=1, Name=1}
+                new Repair{Id=2, Name=1}
             };
         }
     }

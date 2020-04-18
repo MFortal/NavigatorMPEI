@@ -70,11 +70,15 @@
     <Compile Include="Migrations\202004091607284_AddTableRepair.Designer.cs">
       <DependentUpon>202004091607284_AddTableRepair.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202004181817477_FixNodeForeignKey.cs" />
+    <Compile Include="Migrations\202004181817477_FixNodeForeignKey.Designer.cs">
+      <DependentUpon>202004181817477_FixNodeForeignKey.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DataModels\Building.cs" />
     <Compile Include="Models\DataModels\Item.cs" />
     <Compile Include="Models\DataModels\Level.cs" />
-    <Compile Include="Models\DataModels\NavigatorContext.cs" />
+    <Compile Include="NavigatorContext.cs" />
     <Compile Include="Models\DataModels\Node.cs" />
     <Compile Include="Models\DataModels\Repair.cs" />
     <Compile Include="Models\DataModels\TypeItem.cs" />
@@ -84,8 +88,6 @@
     <Compile Include="Models\SourceSeed\NodeInitializer.cs" />
     <Compile Include="Models\SourceSeed\RepairInitializer.cs" />
     <Compile Include="Models\SourceSeed\TypeItemInitializer.cs" />
-    <Compile Include="Models\ViewModels\ItemsLevel.cs" />
-    <Compile Include="Models\ViewModels\MapViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -103,6 +105,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202004091607284_AddTableRepair.resx">
       <DependentUpon>202004091607284_AddTableRepair.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004181817477_FixNodeForeignKey.resx">
+      <DependentUpon>202004181817477_FixNodeForeignKey.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

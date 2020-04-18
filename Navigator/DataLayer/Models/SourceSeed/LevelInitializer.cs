@@ -1,6 +1,6 @@
-﻿using Navigator.Models.DataModels;
+﻿using DataLayer.Models.DataModels;
 
-namespace Navigator.Models.SourceSeed
+namespace DataLayer.Models.SourceSeed
 {
     public class LevelInitializer
     {

@@ -1,6 +1,6 @@
-﻿using Navigator.Models.DataModels;
+﻿using DataLayer.Models.DataModels;
 
-namespace Navigator.Models.SourceSeed
+namespace DataLayer.Models.SourceSeed
 {
     public class NodeInitializer
     {
@@ -17,20 +17,20 @@ namespace Navigator.Models.SourceSeed
                 //new Node{Id=6, NextId=null, X=8, Y=2},
                 //new Node{Id=7, NextId=null, X=11, Y=2},
                 //new Node{Id=8, NextId=null, X=5, Y=7},
-               
+
                 //точки границ внешней стены
-                new Node{Id=9, NextId=10, X=1, Y=1},
-                new Node{Id=10, NextId=11, X=1, Y=12},
-                new Node{Id=11, NextId=12, X=12, Y=12},
-                new Node{Id=12, NextId=null, X=12, Y=1},
+                new Node{Id=12, NextNodeId=null, X=12, Y=1},
+                new Node{Id=11, NextNodeId=12, X=12, Y=12},
+                new Node{Id=10, NextNodeId=11, X=1, Y=12},
+                new Node{Id=9, NextNodeId=10, X=1, Y=1},
 
                 //внутренние стены
                 //(4)
-                new Node{Id=13, NextId=14, X=1, Y=1},
-                new Node{Id=14, NextId=15, X=1, Y=3},
-                new Node{Id=38, NextId=39, X=2, Y=3},
-                new Node{Id=39, NextId=40, X=3, Y=1},
-                new Node{Id=40, NextId=null, X=3, Y=3},
+                //new Node{Id=13, NextNodeId=14, X=1, Y=1},
+                //new Node{Id=14, NextNodeId=15, X=1, Y=3},
+                //new Node{Id=38, NextNodeId=39, X=2, Y=3},
+                //new Node{Id=39, NextNodeId=40, X=3, Y=1},
+                //new Node{Id=40, NextNodeId=null, X=3, Y=3},
                 //(5)
                 //new Node{Id=15, NextId=16, X=3, Y=1},
                 //new Node{Id=16, NextId=17, X=3, Y=3},
