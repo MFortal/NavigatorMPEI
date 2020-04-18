@@ -179,3 +179,6 @@ D:\Source\Repos\NavigatorMPEI\Navigator\Navigator\obj\Debug\Navigator.csproj.Cor
 D:\Source\Repos\NavigatorMPEI\Navigator\Navigator\obj\Debug\Navigator.csproj.CopyComplete
 D:\Source\Repos\NavigatorMPEI\Navigator\Navigator\obj\Debug\Navigator.dll
 D:\Source\Repos\NavigatorMPEI\Navigator\Navigator\obj\Debug\Navigator.pdb
+D:\Source\Repos\NavigatorMPEI\Navigator\Navigator\bin\Services.dll
+D:\Source\Repos\NavigatorMPEI\Navigator\Navigator\bin\Services.pdb
+D:\Source\Repos\NavigatorMPEI\Navigator\Navigator\obj\Debug\Navigator.csprojAssemblyReference.cache

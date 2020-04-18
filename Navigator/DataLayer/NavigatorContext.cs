@@ -7,8 +7,8 @@ namespace DataLayer.Models
     public class NavigatorContext : DbContext
     {
         public NavigatorContext() : base("NavigatorConnection")
-            {
-            }
+        {
+        }
 
         public DbSet<Building> Buildings { get; set; }
         public DbSet<Level> Levels { get; set; }
