@@ -5,6 +5,5 @@ namespace Services.Interfaces
 {
     public interface INodeService
     {
-        IList<NodeSm> Get(ItemSm item);
     }
 }

@@ -48,7 +48,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BuildingService.cs" />
+    <Compile Include="Interfaces\IBuildingService.cs" />
+    <Compile Include="Interfaces\IItemService.cs" />
     <Compile Include="Interfaces\INodeService.cs" />
+    <Compile Include="ItemService.cs" />
     <Compile Include="Models\BaseSmModel.cs" />
     <Compile Include="Models\BuildingSm.cs" />
     <Compile Include="Models\ItemSm.cs" />

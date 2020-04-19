@@ -1,7 +1,9 @@
-﻿namespace Services.Models
+﻿using System;
+
+namespace Services.Models
 {
     public class BaseSmModel
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
     }
 }

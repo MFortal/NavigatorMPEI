@@ -1,4 +1,5 @@
 ﻿using System.Web.Mvc;
+using Services.Interfaces;
 
 namespace Navigator.Controllers
 {
@@ -7,8 +8,7 @@ namespace Navigator.Controllers
         public ActionResult Index()
         {
             return View();
-
-
+            var buildingService = DependencyResolver.Current.GetService(typeof(IBuildingService));
         }
 
         public ActionResult About()

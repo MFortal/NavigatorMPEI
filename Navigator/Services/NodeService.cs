@@ -7,9 +7,5 @@ namespace Services
 {
     public class NodeService : INodeService
     {
-        public IList<NodeSm> Get(ItemSm item)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
