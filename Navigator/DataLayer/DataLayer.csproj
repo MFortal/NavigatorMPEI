@@ -50,43 +50,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\202004021610388_Migratio.cs" />
-    <Compile Include="Migrations\202004021610388_Migratio.Designer.cs">
-      <DependentUpon>202004021610388_Migratio.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202004021619392_Fix.cs" />
-    <Compile Include="Migrations\202004021619392_Fix.Designer.cs">
-      <DependentUpon>202004021619392_Fix.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202004031539072_AddFields.cs" />
-    <Compile Include="Migrations\202004031539072_AddFields.Designer.cs">
-      <DependentUpon>202004031539072_AddFields.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202004091602552_SingularTableName.cs" />
-    <Compile Include="Migrations\202004091602552_SingularTableName.Designer.cs">
-      <DependentUpon>202004091602552_SingularTableName.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202004091607284_AddTableRepair.cs" />
-    <Compile Include="Migrations\202004091607284_AddTableRepair.Designer.cs">
-      <DependentUpon>202004091607284_AddTableRepair.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202004181817477_FixNodeForeignKey.cs" />
-    <Compile Include="Migrations\202004181817477_FixNodeForeignKey.Designer.cs">
-      <DependentUpon>202004181817477_FixNodeForeignKey.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202004182126479_DropRepairTable.cs" />
-    <Compile Include="Migrations\202004182126479_DropRepairTable.Designer.cs">
-      <DependentUpon>202004182126479_DropRepairTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202004191552024_DropItemTable.cs" />
-    <Compile Include="Migrations\202004191552024_DropItemTable.Designer.cs">
-      <DependentUpon>202004191552024_DropItemTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202004191553195_ReCreateItemTable.cs" />
-    <Compile Include="Migrations\202004191553195_ReCreateItemTable.Designer.cs">
-      <DependentUpon>202004191553195_ReCreateItemTable.cs</DependentUpon>
+    <Compile Include="Migrations\202004191810345_InitTables.cs" />
+    <Compile Include="Migrations\202004191810345_InitTables.Designer.cs">
+      <DependentUpon>202004191810345_InitTables.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\DataModels\BaseTableModel.cs" />
     <Compile Include="Models\DataModels\Building.cs" />
     <Compile Include="Models\DataModels\Item.cs" />
     <Compile Include="Models\DataModels\Level.cs" />
@@ -101,35 +70,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202004021610388_Migratio.resx">
-      <DependentUpon>202004021610388_Migratio.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004021619392_Fix.resx">
-      <DependentUpon>202004021619392_Fix.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004031539072_AddFields.resx">
-      <DependentUpon>202004031539072_AddFields.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004091602552_SingularTableName.resx">
-      <DependentUpon>202004091602552_SingularTableName.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004091607284_AddTableRepair.resx">
-      <DependentUpon>202004091607284_AddTableRepair.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004181817477_FixNodeForeignKey.resx">
-      <DependentUpon>202004181817477_FixNodeForeignKey.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004182126479_DropRepairTable.resx">
-      <DependentUpon>202004182126479_DropRepairTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004191552024_DropItemTable.resx">
-      <DependentUpon>202004191552024_DropItemTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004191553195_ReCreateItemTable.resx">
-      <DependentUpon>202004191553195_ReCreateItemTable.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
@@ -138,6 +78,11 @@
       <Project>{4A8917B1-2DB6-447B-AA0F-A274907EBBAC}</Project>
       <Name>Abstractions</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202004191810345_InitTables.resx">
+      <DependentUpon>202004191810345_InitTables.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

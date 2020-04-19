@@ -15,10 +15,10 @@
 
         protected override void Seed(NavigatorContext context)
         {
-            context.Buildings.AddOrUpdate(BuildingInitializer.Initialize());
-            context.Levels.AddOrUpdate(LevelInitializer.Initialize());
-            context.TypeItems.AddOrUpdate(TypeItemInitializer.Initialize());
-            context.Nodes.AddOrUpdate(NodeInitializer.Initialize());
+            //context.Buildings.AddOrUpdate(BuildingInitializer.Initialize());
+            //context.Levels.AddOrUpdate(LevelInitializer.Initialize());
+            //context.TypeItems.AddOrUpdate(TypeItemInitializer.Initialize());
+            //context.Nodes.AddOrUpdate(NodeInitializer.Initialize());
             context.Items.AddOrUpdate(ItemInitializer.Initialize());
 
             try

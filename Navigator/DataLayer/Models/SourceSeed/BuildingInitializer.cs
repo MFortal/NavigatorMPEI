@@ -8,7 +8,7 @@ namespace DataLayer.Models.SourceSeed
         {
             return new Building[]
             {
-                new Building{Id=1, Name="testingField"}
+                new Building{Name="testingField"}
             };
         }
     }

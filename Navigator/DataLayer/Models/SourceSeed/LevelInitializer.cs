@@ -8,7 +8,7 @@ namespace DataLayer.Models.SourceSeed
         {
             return new Level[]
             {
-                new Level{Id=1, Name=1}
+                new Level{/*Id=1,*/ Name=1}
             };
         }
     }

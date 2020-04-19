@@ -9,8 +9,8 @@ namespace DataLayer.Models.SourceSeed
         {
             return new TypeItem[]
             {
-                new TypeItem{Id=1, Name="Кабинет", Code = (int)ItemType.Room},
-                new TypeItem{Id=2, Name="Граница", Code = (int)ItemType.Border}
+                new TypeItem{/*Id=1, */Name="Кабинет", Code = (int)ItemType.Room},
+                new TypeItem{/*Id=2, */Name="Граница", Code = (int)ItemType.Border}
             };
         }
     }

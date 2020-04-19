@@ -1,4 +1,6 @@
-﻿namespace Services.Models
+﻿using System.Collections.Generic;
+
+namespace Services.Models
 {
     public class ItemSm : BaseSmModel
     {
@@ -12,6 +14,6 @@
         
         public TypeItemSm TypeItem { get; set; }
 
-        public NodeSm FirstNode { get; set; }
+        public LinkedList<NodeSm> Nodes { get; set; }
     }
 }

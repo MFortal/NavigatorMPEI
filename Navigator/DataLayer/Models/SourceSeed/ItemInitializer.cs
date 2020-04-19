@@ -1,4 +1,5 @@
-﻿using DataLayer.Models.DataModels;
+﻿using System;
+using DataLayer.Models.DataModels;
 
 namespace DataLayer.Models.SourceSeed
 {
@@ -6,6 +7,11 @@ namespace DataLayer.Models.SourceSeed
     {
         public static Item[] Initialize()
         {
+            var buildings = BuildingInitializer.Initialize();
+            var levels = LevelInitializer.Initialize();
+            var itemTypes = TypeItemInitializer.Initialize();
+            var nodes = NodeInitializer.Initialize();
+
             return new Item[]
             {
                 //new Item{Id=1, LevelId=1, BuildingId=1, TypeItemId=1, NodeId=1},
@@ -18,7 +24,12 @@ namespace DataLayer.Models.SourceSeed
                 //new Item{Id=8, LevelId=1, BuildingId=1, TypeItemId=8, NodeId=8},
                
                 //границы
-                new Item{Id=9, LevelId=1, BuildingId=1, TypeItemId=2, NodeId=9, Repair = false},
+                new Item{/*Id=9,*/
+                    Level = levels[0],
+                    Building = buildings[0],
+                    TypeItem = itemTypes[0], 
+                    Node = nodes[0],
+                    /*NodeId=9,*/ Repair = false},
                 //new Item{Id=10, LevelId=1, BuildingId=1, TypeItemId=2, NodeId=10},
                 //new Item{Id=11, LevelId=1, BuildingId=1, TypeItemId=2, NodeId=11},
                 //new Item{Id=12, LevelId=1, BuildingId=1, TypeItemId=2, NodeId=12},

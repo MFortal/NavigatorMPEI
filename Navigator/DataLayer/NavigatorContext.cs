@@ -1,8 +1,8 @@
-﻿using DataLayer.Models.DataModels;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
+using DataLayer.Models.DataModels;
 
-namespace DataLayer.Models
+namespace DataLayer
 {
     public class NavigatorContext : DbContext
     {
