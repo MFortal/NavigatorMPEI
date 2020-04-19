@@ -1,6 +1,6 @@
 ﻿namespace Services.Models
 {
-    public class ItemSm
+    public class ItemSm : BaseSmModel
     {
         public string Description { get; set; }
         public string Number { get; set; }

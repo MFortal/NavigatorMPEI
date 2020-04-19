@@ -1,6 +1,6 @@
 ﻿namespace Services.Models
 {
-    public class NodeSm
+    public class NodeSm : BaseSmModel
     {
         public int X { get; set; }
 
