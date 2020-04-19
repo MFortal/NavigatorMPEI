@@ -7,6 +7,8 @@ namespace Navigator.Controllers
         public ActionResult Index()
         {
             return View();
+
+
         }
 
         public ActionResult About()

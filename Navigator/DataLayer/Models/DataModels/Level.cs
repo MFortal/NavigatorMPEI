@@ -7,9 +7,5 @@ namespace DataLayer.Models.DataModels
         public int Id { get; set; }
 
         public int Name { get; set; }
-
-
-
-        public virtual ICollection<Item> Items { get; set; }
     }
 }

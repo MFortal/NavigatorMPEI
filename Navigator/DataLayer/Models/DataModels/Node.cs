@@ -14,7 +14,5 @@ namespace DataLayer.Models.DataModels
         [ForeignKey("NextNode")]
         public int? NextNodeId { get; set; }
         public virtual Node NextNode { get; set; }
-
-        public virtual ICollection<Item> Items { get; set; }
     }
 }

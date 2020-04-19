@@ -74,19 +74,29 @@
     <Compile Include="Migrations\202004181817477_FixNodeForeignKey.Designer.cs">
       <DependentUpon>202004181817477_FixNodeForeignKey.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202004182126479_DropRepairTable.cs" />
+    <Compile Include="Migrations\202004182126479_DropRepairTable.Designer.cs">
+      <DependentUpon>202004182126479_DropRepairTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004191552024_DropItemTable.cs" />
+    <Compile Include="Migrations\202004191552024_DropItemTable.Designer.cs">
+      <DependentUpon>202004191552024_DropItemTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004191553195_ReCreateItemTable.cs" />
+    <Compile Include="Migrations\202004191553195_ReCreateItemTable.Designer.cs">
+      <DependentUpon>202004191553195_ReCreateItemTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DataModels\Building.cs" />
     <Compile Include="Models\DataModels\Item.cs" />
     <Compile Include="Models\DataModels\Level.cs" />
     <Compile Include="NavigatorContext.cs" />
     <Compile Include="Models\DataModels\Node.cs" />
-    <Compile Include="Models\DataModels\Repair.cs" />
     <Compile Include="Models\DataModels\TypeItem.cs" />
     <Compile Include="Models\SourceSeed\BuildingInitializer.cs" />
     <Compile Include="Models\SourceSeed\ItemInitializer.cs" />
     <Compile Include="Models\SourceSeed\LevelInitializer.cs" />
     <Compile Include="Models\SourceSeed\NodeInitializer.cs" />
-    <Compile Include="Models\SourceSeed\RepairInitializer.cs" />
     <Compile Include="Models\SourceSeed\TypeItemInitializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -108,6 +118,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202004181817477_FixNodeForeignKey.resx">
       <DependentUpon>202004181817477_FixNodeForeignKey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004182126479_DropRepairTable.resx">
+      <DependentUpon>202004182126479_DropRepairTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004191552024_DropItemTable.resx">
+      <DependentUpon>202004191552024_DropItemTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004191553195_ReCreateItemTable.resx">
+      <DependentUpon>202004191553195_ReCreateItemTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

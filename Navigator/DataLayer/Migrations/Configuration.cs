@@ -20,7 +20,6 @@
             context.TypeItems.AddOrUpdate(TypeItemInitializer.Initialize());
             context.Nodes.AddOrUpdate(NodeInitializer.Initialize());
             context.Items.AddOrUpdate(ItemInitializer.Initialize());
-            context.Repairs.AddOrUpdate(RepairInitializer.Initialize());
 
             try
             {
