@@ -2,7 +2,7 @@
 
 namespace Services.Models
 {
-    public class TypeItemSm
+    public class TypeItemSm : BaseSmModel
     {
         public ItemType Type { get; set; }
 

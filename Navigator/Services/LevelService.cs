@@ -5,22 +5,22 @@ using Services.Models;
 
 namespace Services
 {
-    public class BuildingService : IBuildingService
+    public class LevelService : ILevelService
     {
-        public BuildingSm Get(Guid id)
+        public LevelSm Get(Guid id)
         {
             using (var db = new NavigatorContext())
             {
-                var building = db.Buildings.Find(id);
-                if (building == null)
+                var level = db.Levels.Find(id);
+                if (level == null)
                 {
                     return null;
                 }
 
-                return new BuildingSm()
+                return new LevelSm()
                 {
-                    Id = building.Id,
-                    Name = building.Name
+                    Id = level.Id,
+                    Name = level.Name
                 };
             }
         }

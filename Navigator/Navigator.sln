@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Services\Servic
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Abstractions", "Abstractions\Abstractions.csproj", "{4A8917B1-2DB6-447B-AA0F-A274907EBBAC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{D0B56482-0B62-44DD-A8F8-DDACCA5DCE79}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{4A8917B1-2DB6-447B-AA0F-A274907EBBAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4A8917B1-2DB6-447B-AA0F-A274907EBBAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4A8917B1-2DB6-447B-AA0F-A274907EBBAC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0B56482-0B62-44DD-A8F8-DDACCA5DCE79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0B56482-0B62-44DD-A8F8-DDACCA5DCE79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0B56482-0B62-44DD-A8F8-DDACCA5DCE79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0B56482-0B62-44DD-A8F8-DDACCA5DCE79}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

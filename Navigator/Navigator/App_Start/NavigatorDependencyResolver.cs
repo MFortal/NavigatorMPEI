@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Web.Mvc;
 using Services;
 using Services.Interfaces;
@@ -11,11 +10,18 @@ namespace Navigator
     {
         private readonly IBuildingService _buildingService;
         private readonly IItemService _itemService;
+        private readonly ILevelService _levelService;
+        private readonly ITypeItemService _typeItemService;
+        private readonly INodeService _nodeService;
+
 
         public NavigatorDependencyResolver()
         {
             _buildingService = new BuildingService();
-            _itemService = new ItemService(_buildingService);
+            _levelService = new LevelService();
+            _typeItemService = new TypeItemService();
+            _nodeService = new NodeService();
+            _itemService = new ItemService(_buildingService, _levelService, _typeItemService, _nodeService);
         }
 
         public object GetService(Type serviceType)
