@@ -6,7 +6,7 @@ namespace Services.Models
     {
         public BuildingSm Building { get; set; }
 
-        public int Name { get; set; }
+        public int Number { get; set; }
 
         public IEnumerable<ItemSm> Items { get; set; }
     }

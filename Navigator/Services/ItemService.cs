@@ -49,7 +49,7 @@ namespace Services
                 Level = new LevelSm()
                 {
                     Id = item.LevelId,
-                    Name = item.Level.Name
+                    Number = item.Level.Number
                 },
                 TypeItem = _typeItemService.Get(item.TypeItemId),
                 Nodes = _nodeService.GetLine(item.NodeId),

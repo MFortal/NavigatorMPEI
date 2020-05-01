@@ -45,7 +45,7 @@ namespace Services
             using (var db = new NavigatorContext())
             {
                 // Todo: выбрать вначале дефолтное здание
-                var defaultLevel = db.Levels.FirstOrDefault(x => x.Name == 1);
+                var defaultLevel = db.Levels.FirstOrDefault(x => x.Number == 1);
 
                 return defaultLevel != null ? Get(defaultLevel.Id) : null;
             }
@@ -56,7 +56,7 @@ namespace Services
             return new LevelSm()
             {
                 Id = level.Id,
-                Name = level.Name                
+                Number = level.Number
             };
         }
     }
