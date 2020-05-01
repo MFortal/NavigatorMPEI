@@ -13,5 +13,7 @@ namespace Services.Models
         public TypeItemSm TypeItem { get; set; }
 
         public LinkedList<NodeSm> Nodes { get; set; }
+
+        public NodeSm Center { get; set; }
     }
 }

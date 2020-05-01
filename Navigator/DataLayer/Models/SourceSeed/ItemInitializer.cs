@@ -146,7 +146,6 @@ namespace DataLayer.Models.SourceSeed
                     Node = nodes[1].First(),
                     Repair = false
                 },
-
             };
         }
     }
