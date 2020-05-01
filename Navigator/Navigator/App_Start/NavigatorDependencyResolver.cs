@@ -8,30 +8,38 @@ namespace Navigator
 {
     public class NavigatorDependencyResolver : IDependencyResolver
     {
-        private readonly IBuildingService _buildingService;
-        private readonly IItemService _itemService;
-        private readonly ILevelService _levelService;
-        private readonly ITypeItemService _typeItemService;
-        private readonly INodeService _nodeService;
+        private readonly Dictionary<Type, object> _serviceMap = new Dictionary<Type, object>();
+        private readonly IDependencyResolver _defaultResolver;
 
-
-        public NavigatorDependencyResolver()
+        public NavigatorDependencyResolver(IDependencyResolver defaultResolver)
         {
-            _buildingService = new BuildingService();
-            _levelService = new LevelService(_itemService, _buildingService);
-            _typeItemService = new TypeItemService();
-            _nodeService = new NodeService();
-            _itemService = new ItemService(_typeItemService, _nodeService);
+            _defaultResolver = defaultResolver;
+
+            IBuildingService buildingService = new BuildingService();
+            ITypeItemService typeItemService = new TypeItemService();
+            INodeService nodeService = new NodeService();
+            ILevelService levelService = new LevelService(buildingService, typeItemService, nodeService);            
+            IItemService itemService = new ItemService(typeItemService, nodeService, levelService);
+
+            _serviceMap.Add(typeof(IBuildingService), buildingService);
+            _serviceMap.Add(typeof(ITypeItemService), typeItemService);
+            _serviceMap.Add(typeof(INodeService), nodeService);
+            _serviceMap.Add(typeof(ILevelService), levelService);
+            _serviceMap.Add(typeof(IItemService), itemService);            
         }
 
         public object GetService(Type serviceType)
         {
-            throw new NotImplementedException();
+            return _serviceMap.TryGetValue(serviceType, out var service) 
+                ? service 
+                : _defaultResolver.GetService(serviceType);
         }
 
         public IEnumerable<object> GetServices(Type serviceType)
         {
-            throw new NotImplementedException();
+            return _serviceMap.TryGetValue(serviceType, out var service)
+                ? new []{service}
+                : _defaultResolver.GetServices(serviceType);
         }
     }
 }

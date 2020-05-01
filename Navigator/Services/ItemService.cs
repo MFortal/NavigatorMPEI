@@ -11,11 +11,13 @@ namespace Services
     {
         private readonly ITypeItemService _typeItemService;
         private readonly INodeService _nodeService;
+        private readonly ILevelService _levelService;
 
-        public ItemService(ITypeItemService typeItemService, INodeService nodeService)
+        public ItemService(ITypeItemService typeItemService, INodeService nodeService, ILevelService levelService)
         {            
             _typeItemService = typeItemService;
             _nodeService = nodeService;
+            _levelService = levelService;
         }
 
         public ItemSm Get(Guid id)
@@ -28,13 +30,7 @@ namespace Services
                     return null;
                 }
 
-                var itemSm = ToSmModel(item);
-                itemSm.Level.Items = db.Items
-                    .Where(x => x.LevelId == item.LevelId)
-                    .AsEnumerable()
-                    .Select(ToSmModel)
-                    .ToList();
-                return itemSm;
+                return ToSmModel(item);
             }
         }
 
@@ -46,11 +42,7 @@ namespace Services
                 Description = item.Description,
                 Number = item.Number,
                 Repair = item.Repair,
-                Level = new LevelSm()
-                {
-                    Id = item.LevelId,
-                    Number = item.Level.Number
-                },
+                Level = _levelService.Get(item.LevelId),
                 TypeItem = _typeItemService.Get(item.TypeItemId),
                 Nodes = _nodeService.GetLine(item.NodeId),
             };
