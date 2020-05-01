@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Linq;
 using DataLayer;
+using DataLayer.Models.DataModels;
 using Services.Interfaces;
 using Services.Models;
 
@@ -7,11 +9,17 @@ namespace Services
 {
     public class LevelService : ILevelService
     {
+        private readonly IItemService _itemService;
         private readonly IBuildingService _buildingService;
+        private readonly ITypeItemService _typeItemService;
+        private readonly INodeService _nodeService;
 
-        public LevelService(IBuildingService buildingService)
+        public LevelService(IBuildingService buildingService, ITypeItemService typeItemService, INodeService nodeService)
         {
+            _itemService = new ItemService(typeItemService, nodeService, this);
             _buildingService = buildingService;
+            _typeItemService = typeItemService;
+            _nodeService = nodeService;
         }
 
         public LevelSm Get(Guid id)
@@ -24,13 +32,37 @@ namespace Services
                     return null;
                 }
 
-                return new LevelSm()
-                {
-                    Id = level.Id,
-                    Number = level.Number,
-                    Building = _buildingService.Get(level.BuildingId)
-                };
+                var items = db.Items.Where(x => x.LevelId == level.Id);
+                var itemsSm = items
+                    .AsEnumerable()
+                    .Select(_itemService.ToSmModel)
+                    .ToList();
+
+                var levelSm = ToSmModel(level);
+                levelSm.Items = itemsSm;
+                return levelSm;
             }
+        }
+
+        public LevelSm GetDefault()
+        {
+            using (var db = new NavigatorContext())
+            {
+                // Todo: выбрать вначале дефолтное здание
+                var defaultLevel = db.Levels.FirstOrDefault(x => x.Number == 1);
+
+                return defaultLevel != null ? Get(defaultLevel.Id) : null;
+            }
+        }
+
+        private LevelSm ToSmModel(Level level)
+        {
+            return new LevelSm()
+            {
+                Id = level.Id,
+                Number = level.Number,
+                Building = _buildingService.Get(level.BuildingId)
+            };
         }
     }
 }

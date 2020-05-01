@@ -6,5 +6,7 @@ namespace Services.Interfaces
     public interface ILevelService
     {
         LevelSm Get(Guid id);
+
+        LevelSm GetDefault();
     }
 }

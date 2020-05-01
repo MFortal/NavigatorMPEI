@@ -1,0 +1,60 @@
+﻿<!-- <div class="main-div"> -->
+@using Navigator.ViewModels
+@model MainMapVm
+
+<header>
+    <div class="header-div">
+        <!--Логотип-->
+        <img src="/Content/img/logo.svg" alt="Логотип" class="logo">
+
+        <!--Поле поиска с кнопками-->
+        <div class="search-div flex-itm">
+            <div class="input-div">
+                <input type="text" id="search-from" class="search-from" placeholder="Откуда">
+                <button id="change-btn" class="change-btn">
+                    <img src="/Content/img/change.svg" alt="Поменять" class="change-img">
+                </button>
+                <input type="text" id="search-to" class="search-to" placeholder="Куда">
+            </div>
+            <div class="btn-div">
+                <button id="search-btn" class="btn search-btn primary-btn">Поиск</button>
+                <button id="btn-reset" class="btn reset-btn">Сбросить</button>
+            </div>
+        </div>
+    </div>
+</header>
+<main>
+    <div class="levels-div">
+        <span class="levels-span">Этаж:</span>
+        <button class="level-btn">1</button>
+        <button class="level-btn">2</button>
+        <button class="level-btn">3</button>
+    </div>
+    <!-- <img src="/Content/img/russia.svg" alt="" class="maps"> -->
+    <!-- viewBox="0 0 400 400" -->
+    <div class="primer">
+        <svg>
+            <rect x="7%" y="7%"/>
+            <rect x="28%" y="28%"/>
+            <rect x="50%" y="50%"/>
+            <rect x="72%" y="72%"/>
+
+            <rect x="72%" y="7%"/>
+            <rect x="50%" y="28%"/>
+            <rect x="28%" y="50%"/>
+            <rect x="7%" y="72%"/>
+        </svg>
+    </div>
+    <!-- <object type="image/svg+xml" data="/Content/img/russia.svg" id="object"></object> -->
+</main>
+<footer>
+    <div class="footer-div">
+        <img src="/Content/img/logo.svg" alt="Логотип" class="logo flex-itm">
+        <div class="social-links">
+            <a href="https://mpei.ru/Pages/default.aspx" target="_blank" class="social-link">Официальный сайт</a>
+            <a href="http://profcom.mpei.ru/" target="_blank" class="social-link">Профком студентов</a>
+            <a href="https://vk.com/overhear_first_energy" target="_blank" class="social-link">Подслушано МЭИ</a>
+        </div>
+    </div>
+</footer>
+<!-- </div> -->
