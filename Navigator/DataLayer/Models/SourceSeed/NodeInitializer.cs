@@ -9,10 +9,23 @@ namespace DataLayer.Models.SourceSeed
         public static Node[] Initialize()
         {
             var borderNodes = new LinkedList<Node>();
-            borderNodes.AddFirst(new Node() {X = 1, Y = 1});
-            borderNodes.AddLast(new Node() { X = 1, Y = 12 });
-            borderNodes.AddLast(new Node() { X = 12, Y = 12 });
-            borderNodes.AddLast(new Node() { X = 12, Y = 1 });
+            borderNodes.AddFirst(new Node() {X = 5, Y = 5});
+            borderNodes.AddLast(new Node() { X = 5, Y = 45 });
+            borderNodes.AddLast(new Node() { X = 51, Y = 45});
+            borderNodes.AddLast(new Node() { X = 51, Y = 30});
+            borderNodes.AddLast(new Node() { X = 80, Y = 30 });
+            borderNodes.AddLast(new Node() { X = 80, Y = 45});
+            borderNodes.AddLast(new Node() { X = 124, Y = 45 });
+            borderNodes.AddLast(new Node() { X = 124, Y = 8 });
+            borderNodes.AddLast(new Node() { X = 115, Y = 8 });
+            borderNodes.AddLast(new Node() { X = 115, Y = 36 });
+            borderNodes.AddLast(new Node() { X = 84, Y = 36 });
+            borderNodes.AddLast(new Node() { X = 84, Y = 23 });
+            borderNodes.AddLast(new Node() { X = 46, Y = 23 });
+            borderNodes.AddLast(new Node() { X = 46, Y = 36 });
+            borderNodes.AddLast(new Node() { X = 15, Y = 36 });
+            borderNodes.AddLast(new Node() { X = 15, Y = 5 });
+
 
             var currentNode = borderNodes.First;
             while (currentNode.Next != null)
