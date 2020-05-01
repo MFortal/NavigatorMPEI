@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Linq;
 using DataLayer;
+using DataLayer.Models.DataModels;
 using Services.Interfaces;
 using Services.Models;
 
@@ -7,15 +9,15 @@ namespace Services
 {
     public class ItemService : IItemService
     {
-        private readonly ILevelService _levelService;
         private readonly ITypeItemService _typeItemService;
         private readonly INodeService _nodeService;
+        private readonly ILevelService _levelService;
 
-        public ItemService(ILevelService levelService, ITypeItemService typeItemService, INodeService nodeService)
-        {
-            _levelService = levelService;
+        public ItemService(ITypeItemService typeItemService, INodeService nodeService, ILevelService levelService)
+        {            
             _typeItemService = typeItemService;
             _nodeService = nodeService;
+            _levelService = levelService;
         }
 
         public ItemSm Get(Guid id)
@@ -28,17 +30,22 @@ namespace Services
                     return null;
                 }
 
-                return new ItemSm()
-                {
-                    Id = item.Id,
-                    Description = item.Description,
-                    Number = item.Number,
-                    Repair = item.Repair,                    
-                    Level = _levelService.Get(item.LevelId),
-                    TypeItem = _typeItemService.Get(item.TypeItemId),
-                    Nodes = _nodeService.GetLine(item.NodeId),
-                };
+                return ToSmModel(item);
             }
+        }
+
+        public ItemSm ToSmModel(Item item)
+        {
+            return new ItemSm()
+            {
+                Id = item.Id,
+                Description = item.Description,
+                Number = item.Number,
+                Repair = item.Repair,
+                Level = _levelService.Get(item.LevelId),
+                TypeItem = _typeItemService.Get(item.TypeItemId),
+                Nodes = _nodeService.GetLine(item.NodeId),
+            };
         }
     }
 }
