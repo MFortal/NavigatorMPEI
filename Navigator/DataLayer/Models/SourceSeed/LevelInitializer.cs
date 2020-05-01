@@ -6,9 +6,12 @@ namespace DataLayer.Models.SourceSeed
     {
         public static Level[] Initialize()
         {
-            return new Level[]
+            var buildings = BuildingInitializer.Initialize();
+
+            return new[]
             {
-                new Level{/*Id=1,*/ Name=1}
+                new Level{Number = 1, Building = buildings[0]},
+                new Level{Number = 2, Building = buildings[0]}
             };
         }
     }

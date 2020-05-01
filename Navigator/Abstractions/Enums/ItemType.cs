@@ -6,6 +6,6 @@
         Border,
         Room,
         Door,
-
+        Stairs
     }
 }

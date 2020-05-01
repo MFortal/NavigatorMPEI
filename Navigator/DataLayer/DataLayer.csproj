@@ -54,11 +54,16 @@
     <Compile Include="Migrations\202004191810345_InitTables.Designer.cs">
       <DependentUpon>202004191810345_InitTables.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202005011426517_AlterLevelTable.cs" />
+    <Compile Include="Migrations\202005011426517_AlterLevelTable.Designer.cs">
+      <DependentUpon>202005011426517_AlterLevelTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DataModels\BaseTableModel.cs" />
     <Compile Include="Models\DataModels\Building.cs" />
     <Compile Include="Models\DataModels\Item.cs" />
     <Compile Include="Models\DataModels\Level.cs" />
+    <Compile Include="Models\SourceSeed\SeedHelper.cs" />
     <Compile Include="NavigatorContext.cs" />
     <Compile Include="Models\DataModels\Node.cs" />
     <Compile Include="Models\DataModels\TypeItem.cs" />
@@ -82,6 +87,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202004191810345_InitTables.resx">
       <DependentUpon>202004191810345_InitTables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005011426517_AlterLevelTable.resx">
+      <DependentUpon>202005011426517_AlterLevelTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
