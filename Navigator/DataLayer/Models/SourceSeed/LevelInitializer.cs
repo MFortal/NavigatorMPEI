@@ -10,7 +10,8 @@ namespace DataLayer.Models.SourceSeed
 
             return new[]
             {
-                new Level{/*Id=1,*/ Number= 1, Building = buildings[0]}
+                new Level{Number = 1, Building = buildings[0]},
+                new Level{Number = 2, Building = buildings[0]}
             };
         }
     }
