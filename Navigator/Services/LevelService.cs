@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Linq;
 using DataLayer;
+using DataLayer.Models.DataModels;
 using Services.Interfaces;
 using Services.Models;
 
@@ -7,6 +9,15 @@ namespace Services
 {
     public class LevelService : ILevelService
     {
+        private readonly IItemService _itemService;
+        private readonly IBuildingService _buildingService;
+
+        public LevelService(IItemService itemService, IBuildingService buildingService)
+        {
+            _itemService = itemService;
+            _buildingService = buildingService;
+        }
+
         public LevelSm Get(Guid id)
         {
             using (var db = new NavigatorContext())
@@ -17,12 +28,36 @@ namespace Services
                     return null;
                 }
 
-                return new LevelSm()
-                {
-                    Id = level.Id,
-                    Name = level.Name
-                };
+                var items = db.Items.Where(x => x.LevelId == level.Id);
+                var itemsSm = items
+                    .AsEnumerable()
+                    .Select(_itemService.ToSmModel)
+                    .ToList();
+
+                var levelSm = ToSmModel(level);
+                levelSm.Items = itemsSm;
+                return levelSm;
             }
+        }
+
+        public LevelSm GetDefault()
+        {
+            using (var db = new NavigatorContext())
+            {
+                // Todo: выбрать вначале дефолтное здание
+                var defaultLevel = db.Levels.FirstOrDefault(x => x.Name == 1);
+
+                return defaultLevel != null ? Get(defaultLevel.Id) : null;
+            }
+        }
+
+        private LevelSm ToSmModel(Level level)
+        {
+            return new LevelSm()
+            {
+                Id = level.Id,
+                Name = level.Name                
+            };
         }
     }
 }

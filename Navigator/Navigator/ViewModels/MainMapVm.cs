@@ -11,6 +11,8 @@ namespace Navigator.ViewModels
         public IEnumerable<PointVm> Border { get; set; }
         public string BorderString => string.Join(" ", Border.Select(x => x.ToString()));
 
-        public IEnumerable<ItemVm> Items { get; set; }        
+        public IEnumerable<ItemVm> Rooms { get; set; }
+
+        public IEnumerable<ItemVm> Stairs { get; set; }
     }
 }

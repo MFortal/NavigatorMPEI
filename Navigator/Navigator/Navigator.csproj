@@ -176,6 +176,10 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Abstractions\Abstractions.csproj">
+      <Project>{4A8917B1-2DB6-447B-AA0F-A274907EBBAC}</Project>
+      <Name>Abstractions</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Services\Services.csproj">
       <Project>{c9d84111-10e0-4908-93e7-279781e0fe4a}</Project>
       <Name>Services</Name>

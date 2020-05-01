@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Linq;
 using DataLayer;
+using DataLayer.Models.DataModels;
 using Services.Interfaces;
 using Services.Models;
 
@@ -7,15 +9,11 @@ namespace Services
 {
     public class ItemService : IItemService
     {
-        private readonly IBuildingService _buildingService;
-        private readonly ILevelService _levelService;
         private readonly ITypeItemService _typeItemService;
         private readonly INodeService _nodeService;
 
-        public ItemService(IBuildingService buildingService, ILevelService levelService, ITypeItemService typeItemService, INodeService nodeService)
-        {
-            _buildingService = buildingService;
-            _levelService = levelService;
+        public ItemService(ITypeItemService typeItemService, INodeService nodeService)
+        {            
             _typeItemService = typeItemService;
             _nodeService = nodeService;
         }
@@ -30,18 +28,32 @@ namespace Services
                     return null;
                 }
 
-                return new ItemSm()
-                {
-                    Id = item.Id,
-                    Description = item.Description,
-                    Number = item.Number,
-                    Repair = item.Repair,
-                    Building = _buildingService.Get(item.BuildingId),
-                    Level = _levelService.Get(item.LevelId),
-                    TypeItem = _typeItemService.Get(item.TypeItemId),
-                    Nodes = _nodeService.GetLine(item.NodeId),
-                };
+                var itemSm = ToSmModel(item);
+                itemSm.Level.Items = db.Items
+                    .Where(x => x.LevelId == item.LevelId)
+                    .AsEnumerable()
+                    .Select(ToSmModel)
+                    .ToList();
+                return itemSm;
             }
+        }
+
+        public ItemSm ToSmModel(Item item)
+        {
+            return new ItemSm()
+            {
+                Id = item.Id,
+                Description = item.Description,
+                Number = item.Number,
+                Repair = item.Repair,
+                Level = new LevelSm()
+                {
+                    Id = item.LevelId,
+                    Name = item.Level.Name
+                },
+                TypeItem = _typeItemService.Get(item.TypeItemId),
+                Nodes = _nodeService.GetLine(item.NodeId),
+            };
         }
     }
 }
