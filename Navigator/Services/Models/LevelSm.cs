@@ -2,6 +2,8 @@
 {
     public class LevelSm : BaseSmModel
     {
-        public int Name { get; set; }
+        public int Number { get; set; }
+
+        public BuildingSm Building { get; set; }
     }
 }

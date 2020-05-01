@@ -9,8 +9,6 @@ namespace Services.Models
 
         public LevelSm Level { get; set; }
         public bool Repair { get; set; }
-
-        public BuildingSm Building { get; set; }
         
         public TypeItemSm TypeItem { get; set; }
 

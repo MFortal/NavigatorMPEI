@@ -7,6 +7,13 @@ namespace Services
 {
     public class LevelService : ILevelService
     {
+        private readonly IBuildingService _buildingService;
+
+        public LevelService(IBuildingService buildingService)
+        {
+            _buildingService = buildingService;
+        }
+
         public LevelSm Get(Guid id)
         {
             using (var db = new NavigatorContext())
@@ -20,7 +27,8 @@ namespace Services
                 return new LevelSm()
                 {
                     Id = level.Id,
-                    Name = level.Name
+                    Number = level.Number,
+                    Building = _buildingService.Get(level.BuildingId)
                 };
             }
         }

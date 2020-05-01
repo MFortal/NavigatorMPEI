@@ -7,14 +7,12 @@ namespace Services
 {
     public class ItemService : IItemService
     {
-        private readonly IBuildingService _buildingService;
         private readonly ILevelService _levelService;
         private readonly ITypeItemService _typeItemService;
         private readonly INodeService _nodeService;
 
-        public ItemService(IBuildingService buildingService, ILevelService levelService, ITypeItemService typeItemService, INodeService nodeService)
+        public ItemService(ILevelService levelService, ITypeItemService typeItemService, INodeService nodeService)
         {
-            _buildingService = buildingService;
             _levelService = levelService;
             _typeItemService = typeItemService;
             _nodeService = nodeService;
@@ -35,8 +33,7 @@ namespace Services
                     Id = item.Id,
                     Description = item.Description,
                     Number = item.Number,
-                    Repair = item.Repair,
-                    Building = _buildingService.Get(item.BuildingId),
+                    Repair = item.Repair,                    
                     Level = _levelService.Get(item.LevelId),
                     TypeItem = _typeItemService.Get(item.TypeItemId),
                     Nodes = _nodeService.GetLine(item.NodeId),
