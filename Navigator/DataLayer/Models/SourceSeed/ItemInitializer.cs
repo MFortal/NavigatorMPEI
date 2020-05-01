@@ -49,7 +49,7 @@ namespace DataLayer.Models.SourceSeed
                     Repair = false
                 },
 
-                //лестница К-3 [4]
+                // Лестница К-3 [4]
                 new Item
                 {
                     Level = levels[1],
@@ -58,7 +58,7 @@ namespace DataLayer.Models.SourceSeed
                     Repair = false
                 },
 
-                //лестница К-середина [5]
+                // Лестница К-середина [5]
                 new Item
                 {
                     Level = levels[1],
@@ -67,7 +67,7 @@ namespace DataLayer.Models.SourceSeed
                     Repair = false
                 },
 
-                //лестница К [6]
+                // Лестница К [6]
                 new Item
                 {
                     Level = levels[1],
@@ -76,7 +76,7 @@ namespace DataLayer.Models.SourceSeed
                     Repair = false
                 },
 
-                //кабинет Ж-201 [7]
+                // Кабинет Ж-201 [7]
                 new Item
                 {
                     Level = levels[1],
@@ -87,7 +87,7 @@ namespace DataLayer.Models.SourceSeed
                     Repair = false
                 },
 
-                //кабинет К-204 [8]
+                // Кабинет К-204 [8]
                 new Item
                 {
                     Level = levels[1],
@@ -98,7 +98,7 @@ namespace DataLayer.Models.SourceSeed
                     Repair = false
                 },
 
-                //кабинет К-202 [9]
+                // Кабинет К-202 [9]
                 new Item
                 {
                     Level = levels[1],
@@ -109,7 +109,7 @@ namespace DataLayer.Models.SourceSeed
                     Repair = false
                 },
 
-                //граница 1 этажа [10]
+                // Граница 1 этажа [10]
                 new Item
                 {
                     Level = levels[0],
@@ -118,7 +118,7 @@ namespace DataLayer.Models.SourceSeed
                     Repair = false
                 },
 
-                //кабинет К-102 [11]
+                // Кабинет К-102 [11]
                 new Item
                 {
                     Level = levels[0],
@@ -129,7 +129,7 @@ namespace DataLayer.Models.SourceSeed
                     Repair = false
                 },
 
-                //лестница К-середина [5]
+                // Лестница К-середина [5]
                 new Item
                 {
                     Level = levels[0],
@@ -138,7 +138,7 @@ namespace DataLayer.Models.SourceSeed
                     Repair = false
                 },
 
-                //лестница Ж [1]
+                // Лестница Ж [1]
                 new Item
                 {
                     Level = levels[0],
