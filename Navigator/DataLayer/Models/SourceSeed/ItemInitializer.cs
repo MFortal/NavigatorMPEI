@@ -1,18 +1,16 @@
-﻿using System;
-using DataLayer.Models.DataModels;
+﻿using DataLayer.Models.DataModels;
 
 namespace DataLayer.Models.SourceSeed
 {
     public class ItemInitializer
     {
         public static Item[] Initialize()
-        {
-            var buildings = BuildingInitializer.Initialize();
+        {            
             var levels = LevelInitializer.Initialize();
             var itemTypes = TypeItemInitializer.Initialize();
             var nodes = NodeInitializer.Initialize();
 
-            return new Item[]
+            return new[]
             {
                 //new Item{Id=1, LevelId=1, BuildingId=1, TypeItemId=1, NodeId=1},
                 //new Item{Id=2, LevelId=1, BuildingId=1, TypeItemId=2, NodeId=2},
@@ -25,8 +23,7 @@ namespace DataLayer.Models.SourceSeed
                
                 //границы
                 new Item{/*Id=9,*/
-                    Level = levels[0],
-                    Building = buildings[0],
+                    Level = levels[0],                    
                     TypeItem = itemTypes[0], 
                     Node = nodes[0],
                     /*NodeId=9,*/ Repair = false},
