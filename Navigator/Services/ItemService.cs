@@ -34,7 +34,7 @@ namespace Services
             }
         }
 
-        public ItemSm ToSmModel(Item item)
+        public ItemSm ToSmModel(Item item, LevelSm levelSm = null)
         {
             return new ItemSm()
             {
@@ -42,7 +42,7 @@ namespace Services
                 Description = item.Description,
                 Number = item.Number,
                 Repair = item.Repair,
-                Level = _levelService.Get(item.LevelId),
+                Level = levelSm ?? _levelService.Get(item.LevelId),
                 TypeItem = _typeItemService.Get(item.TypeItemId),
                 Nodes = _nodeService.GetLine(item.NodeId),
             };

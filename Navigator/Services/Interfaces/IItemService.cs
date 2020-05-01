@@ -8,6 +8,6 @@ namespace Services.Interfaces
     {
         ItemSm Get(Guid id);
 
-        ItemSm ToSmModel(Item item);
+        ItemSm ToSmModel(Item item, LevelSm levelSm = null);
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace DataLayer.Migrations
+﻿using System.Linq;
+
+namespace DataLayer.Migrations
 {
     using DataLayer.Models;
     using DataLayer.Models.SourceSeed;
@@ -18,8 +20,9 @@
             //context.Buildings.AddOrUpdate(BuildingInitializer.Initialize());
             //context.Levels.AddOrUpdate(LevelInitializer.Initialize());
             //context.TypeItems.AddOrUpdate(TypeItemInitializer.Initialize());
-            //context.Nodes.AddOrUpdate(NodeInitializer.Initialize());
-            context.Items.AddOrUpdate(ItemInitializer.Initialize());
+            var nodes = NodeInitializer.Initialize();
+            context.Nodes.AddOrUpdate(nodes.Select(x => x.Reverse()).SelectMany(x => x).ToArray());
+            context.Items.AddOrUpdate(ItemInitializer.Initialize(nodes));
 
             try
             {

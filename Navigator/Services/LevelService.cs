@@ -32,13 +32,14 @@ namespace Services
                     return null;
                 }
 
+                var levelSm = ToSmModel(level);
                 var items = db.Items.Where(x => x.LevelId == level.Id);
                 var itemsSm = items
                     .AsEnumerable()
-                    .Select(_itemService.ToSmModel)
+                    .Select(x =>_itemService.ToSmModel(x, levelSm))
                     .ToList();
 
-                var levelSm = ToSmModel(level);
+                
                 levelSm.Items = itemsSm;
                 return levelSm;
             }

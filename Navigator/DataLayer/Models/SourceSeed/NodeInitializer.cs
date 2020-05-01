@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using DataLayer.Models.DataModels;
 
 namespace DataLayer.Models.SourceSeed
@@ -145,6 +147,19 @@ namespace DataLayer.Models.SourceSeed
                 new Node() {X = 1150, Y = 60},
                 new Node() {X = 1170, Y = 60}
             });
+
+            foreach (var nodeArray in result)
+            {
+                foreach (var t in nodeArray)
+                {
+                    t.Id = Guid.NewGuid();
+                }
+
+                for (int i = 0; i < nodeArray.Length-1; i++)
+                {
+                    nodeArray[i].NextNodeId = nodeArray[i + 1].Id;
+                }
+            }
 
             return result;
         }

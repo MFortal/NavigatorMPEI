@@ -1,15 +1,16 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using DataLayer.Models.DataModels;
 
 namespace DataLayer.Models.SourceSeed
 {
     public class ItemInitializer
     {
-        public static Item[] Initialize()
+        public static Item[] Initialize(List<Node[]> nodes)
         {
             var levels = LevelInitializer.Initialize();
             var itemTypes = TypeItemInitializer.Initialize();
-            var nodes = NodeInitializer.Initialize();
+            //var nodes = NodeInitializer.Initialize();
 
             return new[]
             {
