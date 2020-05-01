@@ -18,10 +18,10 @@ namespace Navigator
         public NavigatorDependencyResolver()
         {
             _buildingService = new BuildingService();
-            _levelService = new LevelService();
+            _levelService = new LevelService(_buildingService);
             _typeItemService = new TypeItemService();
             _nodeService = new NodeService();
-            _itemService = new ItemService(_buildingService, _levelService, _typeItemService, _nodeService);
+            _itemService = new ItemService(_levelService,_typeItemService, _nodeService);
         }
 
         public object GetService(Type serviceType)

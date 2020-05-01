@@ -9,11 +9,11 @@ namespace Services.Models
 
         public LevelSm Level { get; set; }
         public bool Repair { get; set; }
-
-        public BuildingSm Building { get; set; }
         
         public TypeItemSm TypeItem { get; set; }
 
         public LinkedList<NodeSm> Nodes { get; set; }
+
+        public NodeSm Center { get; set; }
     }
 }

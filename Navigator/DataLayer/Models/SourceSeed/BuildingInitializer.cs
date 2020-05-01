@@ -6,9 +6,9 @@ namespace DataLayer.Models.SourceSeed
     {
         public static Building[] Initialize()
         {
-            return new Building[]
+            return new[]
             {
-                new Building{Name="testingField"}
+                new Building { Name="К-З" }
             };
         }
     }

@@ -7,10 +7,11 @@ namespace DataLayer.Models.SourceSeed
     {
         public static TypeItem[] Initialize()
         {
-            return new TypeItem[]
+            return new[]
             {
-                new TypeItem{/*Id=1, */Name="Кабинет", Code = (int)ItemType.Room},
-                new TypeItem{/*Id=2, */Name="Граница", Code = (int)ItemType.Border}
+                new TypeItem{Name="Кабинет", Code = (int)ItemType.Room},
+                new TypeItem{Name="Граница", Code = (int)ItemType.Border},
+                new TypeItem{Name="Лестница", Code = (int)ItemType.Stairs},
             };
         }
     }
