@@ -10,6 +10,7 @@ namespace Navigator.Controllers
             return View();
             var buildingService = DependencyResolver.Current.GetService(typeof(IBuildingService));
             // my change
+            // 2
         }
 
     }
