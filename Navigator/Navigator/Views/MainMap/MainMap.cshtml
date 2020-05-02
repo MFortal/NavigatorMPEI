@@ -32,17 +32,17 @@
     </div>
     <!-- <img src="/Content/img/russia.svg" alt="" class="maps"> -->
     <!-- viewBox="0 0 400 400" -->
-    <div class="primer">
+    <div class="svg-div">
         <svg>
-            <rect x="7%" y="7%"/>
-            <rect x="28%" y="28%"/>
-            <rect x="50%" y="50%"/>
-            <rect x="72%" y="72%"/>
-
-            <rect x="72%" y="7%"/>
-            <rect x="50%" y="28%"/>
-            <rect x="28%" y="50%"/>
-            <rect x="7%" y="72%"/>
+            <polygon points="@Model.BorderString"  stroke="black"/>
+            @foreach (var room in (Model.Rooms))
+            {
+                <polyline class="room" points="@room.BorderString"/>
+            }
+            @foreach (var stairs in (Model.Stairs))
+            {
+                <polyline class="stairs" points="@stairs.BorderString"/>
+            }
         </svg>
     </div>
     <!-- <object type="image/svg+xml" data="/Content/img/russia.svg" id="object"></object> -->
