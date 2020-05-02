@@ -1,5 +1,4 @@
 ﻿using System;
-using System.CodeDom;
 using System.Collections.Generic;
 using System.Web.Mvc;
 using Abstractions.Interfaces;
@@ -17,10 +16,10 @@ namespace Navigator
         public NavigatorDependencyResolver(IDependencyResolver defaultResolver)
         {
             _defaultResolver = defaultResolver;
-
-            IBuildingService buildingService = new BuildingService();
+            
             ITypeItemService typeItemService = new TypeItemService();
             INodeService nodeService = new NodeService();
+            IBuildingService buildingService = new BuildingService(typeItemService, nodeService);
             ILevelService levelService = new LevelService(buildingService, typeItemService, nodeService);
             IItemService itemService = new ItemService(typeItemService, nodeService, levelService);
 
@@ -32,7 +31,7 @@ namespace Navigator
 
             #region OuterServices
 
-            IMainMapService mainMapService = new MainMapService(levelService);
+            IMainMapService mainMapService = new MainMapService(levelService, buildingService);
 
             _serviceMap.Add(typeof(IMainMapService), mainMapService);
 

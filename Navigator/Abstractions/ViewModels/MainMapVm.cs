@@ -16,5 +16,7 @@ namespace Abstractions.ViewModels
         public IEnumerable<ItemVm> Rooms { get; set; }
 
         public IEnumerable<ItemVm> Stairs { get; set; }
+
+        public IEnumerable<BuildingVm> Buildings { get; set; }
     }
 }

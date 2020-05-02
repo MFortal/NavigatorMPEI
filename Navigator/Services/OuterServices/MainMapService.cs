@@ -10,23 +10,33 @@ namespace Services.OuterServices
     public class MainMapService : IMainMapService
     {
         private readonly ILevelService _levelService;
+        private readonly IBuildingService _buildingService;
 
-        public MainMapService(ILevelService levelService)
+        public MainMapService(ILevelService levelService, IBuildingService buildingService)
         {
             _levelService = levelService;
+            _buildingService = buildingService;
         }
 
         public MainMapVm GetMainMap(Guid? levelId = null)
         {
-            var level = levelId.HasValue 
-                ? _levelService.Get(levelId.Value) 
+            var currentLevel = levelId.HasValue
+                ? _levelService.Get(levelId.Value)
                 : _levelService.GetDefault();
 
-            var border = level.Items
+            var levels = _levelService.GetForBuilding(currentLevel.Building.Id)
+                .Select(x => new LevelVm()
+                {
+                    Id = x.Id,
+                    Number = x.Number
+                })
+                .OrderBy(x => x.Number);
+
+            var border = currentLevel.Items
                 .First(x => x.TypeItem.Type == ItemType.Border)
                 .Nodes.Select(n => new PointVm(n.X, n.Y));
 
-            var rooms = level.Items
+            var rooms = currentLevel.Items
                 .Where(x => x.TypeItem.Type == ItemType.Room)
                 .Select(x => new ItemVm()
                 {
@@ -36,7 +46,7 @@ namespace Services.OuterServices
                     Border = x.Nodes.Select(n => new PointVm(n.X, n.Y))
                 });
 
-            var stairs = level.Items
+            var stairs = currentLevel.Items
                 .Where(x => x.TypeItem.Type == ItemType.Stairs)
                 .Select(x => new ItemVm()
                 {
@@ -44,12 +54,22 @@ namespace Services.OuterServices
                     Border = x.Nodes.Select(n => new PointVm(n.X, n.Y))
                 });
 
+            var buildings = _buildingService.GetAll()
+                .Select(x => new BuildingVm()
+                {
+                    Name = x.Name,
+                    FirstLevelId = x.Levels.FirstOrDefault(l => l.Number == 1)?.Id 
+                                   ?? throw new ApplicationException("Этаж не найден!")
+                });
+
             var model = new MainMapVm
             {
-                CurrentLevelId = level.Id,
+                CurrentLevelId = currentLevel.Id,
                 Border = border,
                 Rooms = rooms,
-                Stairs = stairs
+                Stairs = stairs,
+                Levels = levels,
+                Buildings = buildings
             };
             return model;
         }
