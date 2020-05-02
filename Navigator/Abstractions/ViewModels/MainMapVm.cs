@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Navigator.ViewModels
+namespace Abstractions.ViewModels
 {
     public class MainMapVm
     {
-        public Guid LevelId { get; set; }
+        public Guid CurrentLevelId { get; set; }
+
+        public IEnumerable<LevelVm> Levels { get; set; }
 
         public IEnumerable<PointVm> Border { get; set; }
         public string BorderString => string.Join(" ", Border.Select(x => x.ToString()));

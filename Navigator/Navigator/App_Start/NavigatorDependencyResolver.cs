@@ -1,8 +1,11 @@
 ﻿using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.Web.Mvc;
+using Abstractions.Interfaces;
 using Services;
 using Services.Interfaces;
+using Services.OuterServices;
 
 namespace Navigator
 {
@@ -18,27 +21,35 @@ namespace Navigator
             IBuildingService buildingService = new BuildingService();
             ITypeItemService typeItemService = new TypeItemService();
             INodeService nodeService = new NodeService();
-            ILevelService levelService = new LevelService(buildingService, typeItemService, nodeService);            
+            ILevelService levelService = new LevelService(buildingService, typeItemService, nodeService);
             IItemService itemService = new ItemService(typeItemService, nodeService, levelService);
 
             _serviceMap.Add(typeof(IBuildingService), buildingService);
             _serviceMap.Add(typeof(ITypeItemService), typeItemService);
             _serviceMap.Add(typeof(INodeService), nodeService);
             _serviceMap.Add(typeof(ILevelService), levelService);
-            _serviceMap.Add(typeof(IItemService), itemService);            
+            _serviceMap.Add(typeof(IItemService), itemService);
+
+            #region OuterServices
+
+            IMainMapService mainMapService = new MainMapService(levelService);
+
+            _serviceMap.Add(typeof(IMainMapService), mainMapService);
+
+            #endregion
         }
 
         public object GetService(Type serviceType)
         {
-            return _serviceMap.TryGetValue(serviceType, out var service) 
-                ? service 
+            return _serviceMap.TryGetValue(serviceType, out var service)
+                ? service
                 : _defaultResolver.GetService(serviceType);
         }
 
         public IEnumerable<object> GetServices(Type serviceType)
         {
             return _serviceMap.TryGetValue(serviceType, out var service)
-                ? new []{service}
+                ? new[] { service }
                 : _defaultResolver.GetServices(serviceType);
         }
     }

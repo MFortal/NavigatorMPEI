@@ -11,15 +11,11 @@ namespace Services
     {
         private readonly IItemService _itemService;
         private readonly IBuildingService _buildingService;
-        private readonly ITypeItemService _typeItemService;
-        private readonly INodeService _nodeService;
 
         public LevelService(IBuildingService buildingService, ITypeItemService typeItemService, INodeService nodeService)
         {
             _itemService = new ItemService(typeItemService, nodeService, this);
             _buildingService = buildingService;
-            _typeItemService = typeItemService;
-            _nodeService = nodeService;
         }
 
         public LevelSm Get(Guid id)

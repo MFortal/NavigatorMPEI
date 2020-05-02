@@ -63,6 +63,7 @@
     <Compile Include="Models\NodeSm.cs" />
     <Compile Include="Models\TypeItemSm.cs" />
     <Compile Include="NodeService.cs" />
+    <Compile Include="OuterServices\MainMapService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TypeItemService.cs" />
   </ItemGroup>
