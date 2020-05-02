@@ -42,7 +42,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enums\ItemType.cs" />
+    <Compile Include="Interfaces\IMainMapService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\BuildingVm.cs" />
+    <Compile Include="ViewModels\ItemVm.cs" />
+    <Compile Include="ViewModels\LevelVm.cs" />
+    <Compile Include="ViewModels\MainMapVm.cs" />
+    <Compile Include="ViewModels\PointVm.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

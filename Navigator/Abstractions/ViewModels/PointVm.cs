@@ -1,4 +1,4 @@
-﻿namespace Navigator.ViewModels
+﻿namespace Abstractions.ViewModels
 {
     public class PointVm
     {

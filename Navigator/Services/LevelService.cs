@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using DataLayer;
 using DataLayer.Models.DataModels;
@@ -11,15 +12,11 @@ namespace Services
     {
         private readonly IItemService _itemService;
         private readonly IBuildingService _buildingService;
-        private readonly ITypeItemService _typeItemService;
-        private readonly INodeService _nodeService;
 
         public LevelService(IBuildingService buildingService, ITypeItemService typeItemService, INodeService nodeService)
         {
             _itemService = new ItemService(typeItemService, nodeService, this);
             _buildingService = buildingService;
-            _typeItemService = typeItemService;
-            _nodeService = nodeService;
         }
 
         public LevelSm Get(Guid id)
@@ -56,13 +53,25 @@ namespace Services
             }
         }
 
-        private LevelSm ToSmModel(Level level)
+        public IEnumerable<LevelSm> GetForBuilding(Guid buildingId)
+        {
+            using (var db = new NavigatorContext())
+            {
+                return db.Levels
+                    .Where(x => x.BuildingId == buildingId)
+                    .AsEnumerable()
+                    .Select(level => ToSmModel(level))
+                    .ToList();
+            }
+        }
+
+        public LevelSm ToSmModel(Level level, BuildingSm buildingSm = null)
         {
             return new LevelSm()
             {
                 Id = level.Id,
                 Number = level.Number,
-                Building = _buildingService.Get(level.BuildingId)
+                Building = buildingSm ?? _buildingService.Get(level.BuildingId)
             };
         }
     }

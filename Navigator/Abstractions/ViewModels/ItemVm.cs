@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Navigator.ViewModels
+namespace Abstractions.ViewModels
 {
     public class ItemVm
     {
