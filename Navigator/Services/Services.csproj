@@ -49,6 +49,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BuildingService.cs" />
+    <Compile Include="DiscreteMap\Coordinate.cs" />
+    <Compile Include="DiscreteMap\DiscreteMapService.cs" />
     <Compile Include="Interfaces\IBuildingService.cs" />
     <Compile Include="Interfaces\IItemService.cs" />
     <Compile Include="Interfaces\ILevelService.cs" />
@@ -58,6 +60,8 @@
     <Compile Include="LevelService.cs" />
     <Compile Include="Models\BaseSmModel.cs" />
     <Compile Include="Models\BuildingSm.cs" />
+    <Compile Include="DiscreteMap\Cell.cs" />
+    <Compile Include="DiscreteMap\DiscreteMapField.cs" />
     <Compile Include="Models\ItemSm.cs" />
     <Compile Include="Models\LevelSm.cs" />
     <Compile Include="Models\NodeSm.cs" />
