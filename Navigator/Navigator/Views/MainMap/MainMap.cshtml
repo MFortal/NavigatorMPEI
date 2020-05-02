@@ -33,15 +33,16 @@
     <!-- <img src="/Content/img/russia.svg" alt="" class="maps"> -->
     <!-- viewBox="0 0 400 400" -->
     <div class="svg-div">
-        <svg>
-            <polygon points="@Model.BorderString"  stroke="black"/>
+        <svg viewBox="525 0 400 400">
+            <polygon class="border-plg" points="@Model.BorderString"  stroke="black"/>
             @foreach (var room in (Model.Rooms))
             {
                 <polyline class="room" points="@room.BorderString"/>
             }
             @foreach (var stairs in (Model.Stairs))
             {
-                <polyline class="stairs" points="@stairs.BorderString"/>
+              <polyline points="@stairs.BorderString"/>
+                                         
             }
         </svg>
     </div>
