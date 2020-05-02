@@ -31,13 +31,22 @@ namespace Navigator.Controllers
                     Number = x.Number,
                     Description = x.Description,
                     Border = x.Nodes.Select(n => new PointVm(n.X, n.Y))
-                });            
+                });
+
+            var stairs = level.Items
+                .Where(x => x.TypeItem.Type == ItemType.Stairs)
+                .Select(x => new ItemVm()
+                {
+                    ItemId = x.Id,
+                    Border = x.Nodes.Select(n => new PointVm(n.X, n.Y))
+                });
 
             var model = new MainMapVm
             {
                 LevelId = level.Id,
                 Border = border,
-                Rooms = rooms
+                Rooms = rooms,
+                Stairs = stairs
             };
             
             return View(model);
