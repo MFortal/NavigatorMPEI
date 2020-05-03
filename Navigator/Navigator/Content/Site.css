@@ -224,7 +224,8 @@ input {
      fill:red;
  } */
 
-.primer {
+.svg-div {
+    margin: 1%;
     width: 100%;
     height: 400px;
 }
@@ -232,15 +233,20 @@ input {
 svg {
     width: 100%;
     height: 100%;
+    border: blueviolet 1px solid;
 }
 
-rect {
-    fill: white;
-    stroke: black;
-    width: 20%;
-    height: 20%;
+polygon.border-plg,
+polyline {
+    fill: none;
+    stroke: rgb(75, 75, 75);
+    stroke-width: 2px;
 }
 
-    rect:hover {
-        fill: rgb(206, 120, 120);
-    }
+polyline{
+    stroke-width: 1px;
+}
+
+polyline:hover{
+    fill: coral;
+}

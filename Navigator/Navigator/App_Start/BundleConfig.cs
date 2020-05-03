@@ -12,6 +12,11 @@ namespace Navigator
 
             bundles.Add(new StyleBundle("~/Scripts/js").Include(
                       "~/Scripts/Script.js"));
+
+            bundles.Add(new StyleBundle("~/Scripts/ajax").Include(
+                      "~/Scripts/jquery-3.5.0.js",
+                      "~/Scripts/jquery.unobtrusive-ajax.js",
+                      "~/Scripts/jquery.unobtrusive-ajax.min.js"));
         }
     }
 }
