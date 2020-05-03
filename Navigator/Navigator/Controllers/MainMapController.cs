@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Web.Mvc;
 using Abstractions.Enums;
-using Navigator.ViewModels;
+using Abstractions.ViewModels;
 using Services.Interfaces;
 
 namespace Navigator.Controllers
@@ -44,7 +44,7 @@ namespace Navigator.Controllers
 
             var model = new MainMapVm
             {
-                LevelId = level.Id,
+                CurrentLevelId = level.Id,
                 Border = border,
                 Rooms = rooms,
                 Stairs = stairs
@@ -58,7 +58,7 @@ namespace Navigator.Controllers
         {
             var level = new LevelVm
             {
-                id = id
+                Id = id
             };
             return PartialView(level);
         }
