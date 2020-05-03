@@ -25,23 +25,29 @@
 <main>
     <div class="levels-div">
         <span class="levels-span">Этаж:</span>
-        <button class="level-btn">1</button>
-        <button class="level-btn">2</button>
-        <button class="level-btn">3</button>
+        @for (int i = 1; i < 4; i++)
+        {
+            <button class="level-btn" type="submit">
+               @Ajax.ActionLink(i.ToString(), "GetLevel", "MainMap", new { id = Model.CurrentLevelId},
+               new AjaxOptions { UpdateTargetId = "primer" })
+            </button>
+        }
+        <div id="primer"></div>
     </div>
     <!-- <img src="/Content/img/russia.svg" alt="" class="maps"> -->
     <!-- viewBox="0 0 400 400" -->
-    <div class="primer">
-        <svg>
-            <rect x="7%" y="7%"/>
-            <rect x="28%" y="28%"/>
-            <rect x="50%" y="50%"/>
-            <rect x="72%" y="72%"/>
+    <div class="svg-div" id="map">
+        <svg viewBox="525 0 400 400">
+            <polygon class="border-plg" points="@Model.BorderString" stroke="black" />
+            @foreach (var room in (Model.Rooms))
+            {
+                <polyline class="room" points="@room.BorderString" />
+            }
+            @foreach (var stairs in (Model.Stairs))
+            {
+                <polyline points="@stairs.BorderString" />
 
-            <rect x="72%" y="7%"/>
-            <rect x="50%" y="28%"/>
-            <rect x="28%" y="50%"/>
-            <rect x="7%" y="72%"/>
+            }
         </svg>
     </div>
     <!-- <object type="image/svg+xml" data="/Content/img/russia.svg" id="object"></object> -->

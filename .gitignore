@@ -358,3 +358,4 @@ MigrationBackup/
 *.dll
 *.pdb
 Navigator/Navigator/obj/Debug/Navigator.csproj.FileListAbsolute.txt
+Navigator/.vs/Navigator/v16/.suo
