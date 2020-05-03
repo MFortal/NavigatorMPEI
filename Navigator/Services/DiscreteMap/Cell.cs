@@ -9,5 +9,10 @@
         public int? Distance { get; set; }
 
         public int? Weight{ get; set; }
+
+        public Cell()
+        {
+            Available = true;
+        }
     }
 }

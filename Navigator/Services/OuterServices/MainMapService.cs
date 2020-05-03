@@ -109,6 +109,7 @@ namespace Services.OuterServices
             var minMax = _discreteMapService.FindMinMaxCoordinate(nodesForeLevelDictionary);
             var field = new DiscreteMapField(minMax.Item1, minMax.Item2);
 
+            field.PrintToFile();
             // Todo : пока это заглушка
             return new PathVm() { Path = startItemId.ToString() + finishItemId };
         }

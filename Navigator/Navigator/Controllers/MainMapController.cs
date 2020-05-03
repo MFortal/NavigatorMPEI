@@ -22,7 +22,7 @@ namespace Navigator.Controllers
 
         public ActionResult SearchPath(Guid startId, Guid finishId)
         {
-            var path = _mainMapService.GetPath(startId, finishId).Path;
+            var path = _mainMapService.GetPath(startId, finishId);
             return PartialView(path);
         }
     }
