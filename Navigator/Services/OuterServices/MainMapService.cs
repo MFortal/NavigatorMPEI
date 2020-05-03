@@ -4,7 +4,10 @@ using System.Linq;
 using Abstractions.Enums;
 using Abstractions.Interfaces;
 using Abstractions.ViewModels;
+using DataLayer;
+using Services.DiscreteMap;
 using Services.Interfaces;
+using Services.Models;
 
 namespace Services.OuterServices
 {
@@ -12,11 +15,15 @@ namespace Services.OuterServices
     {
         private readonly ILevelService _levelService;
         private readonly IBuildingService _buildingService;
+        private readonly IItemService _itemService;
+        private readonly IDiscreteMapService _discreteMapService;
 
-        public MainMapService(ILevelService levelService, IBuildingService buildingService)
+        public MainMapService(ILevelService levelService, IBuildingService buildingService, IItemService itemService, IDiscreteMapService discreteMapService)
         {
             _levelService = levelService;
             _buildingService = buildingService;
+            _itemService = itemService;
+            _discreteMapService = discreteMapService;
         }
 
         public MainMapVm GetMainMap(Guid? levelId = null)
@@ -59,7 +66,7 @@ namespace Services.OuterServices
                 .Select(x => new BuildingVm()
                 {
                     Name = x.Name,
-                    FirstLevelId = x.Levels.FirstOrDefault(l => l.Number == 1)?.Id 
+                    FirstLevelId = x.Levels.FirstOrDefault(l => l.Number == 1)?.Id
                                    ?? throw new ApplicationException("Этаж не найден!")
                 });
 
@@ -77,8 +84,32 @@ namespace Services.OuterServices
 
         public PathVm GetPath(Guid startItemId, Guid finishItemId)
         {
+            var startItem = _itemService.Get(startItemId);
+            var finishItem = _itemService.Get(finishItemId);
+
+            var startLevel = startItem.Level;
+            var finishLevel = finishItem.Level;
+
+            if (startLevel.Building != finishLevel.Building)
+            {
+                throw new ApplicationException();
+            }
+            var building = startLevel.Building;
+
+            var minLevelNumber = new[] { startLevel, finishLevel }.Select(x => x.Number).Min();
+            var maxLevelNumber = new[] { startLevel, finishLevel }.Select(x => x.Number).Max();
+
+            var filteredLevels = building.Levels
+                .Where(x => x.Number >= minLevelNumber && x.Number <= maxLevelNumber)
+                .OrderBy(x => x.Number);
+
+            var nodesForeLevelDictionary = filteredLevels.ToDictionary(x => x, x => x.Items.SelectMany(i => i.Nodes).ToList());
+            var minMax = _discreteMapService.FindMinMaxCoordinate(nodesForeLevelDictionary);
+            var field = new DiscreteMapField(minMax.Item1, minMax.Item2);
+
+
             // Todo : пока это заглушка
-            return new PathVm() {Path = startItemId.ToString() + finishItemId};
+            return new PathVm() { Path = startItemId.ToString() + finishItemId };
         }
     }
 }

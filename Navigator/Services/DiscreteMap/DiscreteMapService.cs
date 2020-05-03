@@ -1,18 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Services.Interfaces;
 using Services.Models;
 
 namespace Services.DiscreteMap
 {
-    public class DiscreteMapService
+    public class DiscreteMapService : IDiscreteMapService
     {
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="nodesForLevel">Списки точек, сгруппированых по этажам</param>
-        /// <returns>Минимальную точку текущего запроса (радиус-вектор) и максимальную</returns>
-        Tuple<Coordinate, Coordinate> FindMinMaxCoordinate(IDictionary<int, IList<NodeSm>> nodesForLevel)
+        public Tuple<DiscreteVector, DiscreteVector> FindMinMaxCoordinate(IDictionary<LevelSm, List<NodeSm>> nodesForLevel)
         {
             var firstNode = nodesForLevel.Values.First().First();
 
@@ -21,8 +17,8 @@ namespace Services.DiscreteMap
             var maxX = firstNode.X;
             var maxY = firstNode.Y;
 
-            var minL = nodesForLevel.Keys.Min();
-            var maxL = nodesForLevel.Keys.Max();
+            var minL = nodesForLevel.Keys.Select(x => x.Number).Min();
+            var maxL = nodesForLevel.Keys.Select(x => x.Number).Max();
             foreach (var node in nodesForLevel.SelectMany(x => x.Value))
             {
                 if (node.X > maxX)
@@ -35,10 +31,10 @@ namespace Services.DiscreteMap
                     minY = node.Y;
             }
 
-            var minCoordinate = new Coordinate() {X = minX, Y = minY, Level = minL};
-            var maxCoordinate = new Coordinate() {X = maxX, Y = maxY, Level = maxL};
+            var minCoordinate = new DiscreteVector() {X = minX, Y = minY, Level = minL};
+            var maxCoordinate = new DiscreteVector() {X = maxX, Y = maxY, Level = maxL};
 
-            return new Tuple<Coordinate, Coordinate>(minCoordinate, maxCoordinate);
+            return new Tuple<DiscreteVector, DiscreteVector>(minCoordinate, maxCoordinate);
         }
     }
 }

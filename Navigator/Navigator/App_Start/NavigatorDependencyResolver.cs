@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Web.Mvc;
 using Abstractions.Interfaces;
 using Services;
+using Services.DiscreteMap;
 using Services.Interfaces;
 using Services.OuterServices;
 
@@ -22,16 +23,18 @@ namespace Navigator
             IBuildingService buildingService = new BuildingService(typeItemService, nodeService);
             ILevelService levelService = new LevelService(buildingService, typeItemService, nodeService);
             IItemService itemService = new ItemService(typeItemService, nodeService, levelService);
+            IDiscreteMapService discreteMapService = new DiscreteMapService();
 
             _serviceMap.Add(typeof(IBuildingService), buildingService);
             _serviceMap.Add(typeof(ITypeItemService), typeItemService);
             _serviceMap.Add(typeof(INodeService), nodeService);
             _serviceMap.Add(typeof(ILevelService), levelService);
             _serviceMap.Add(typeof(IItemService), itemService);
+            _serviceMap.Add(typeof(IDiscreteMapService), discreteMapService);
 
             #region OuterServices
 
-            IMainMapService mainMapService = new MainMapService(levelService, buildingService);
+            IMainMapService mainMapService = new MainMapService(levelService, buildingService, itemService, discreteMapService);
 
             _serviceMap.Add(typeof(IMainMapService), mainMapService);
 

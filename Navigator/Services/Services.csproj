@@ -49,9 +49,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BuildingService.cs" />
-    <Compile Include="DiscreteMap\Coordinate.cs" />
+    <Compile Include="DiscreteMap\DiscreteVector.cs" />
     <Compile Include="DiscreteMap\DiscreteMapService.cs" />
     <Compile Include="Interfaces\IBuildingService.cs" />
+    <Compile Include="Interfaces\IDiscreteMapService.cs" />
     <Compile Include="Interfaces\IItemService.cs" />
     <Compile Include="Interfaces\ILevelService.cs" />
     <Compile Include="Interfaces\INodeService.cs" />
