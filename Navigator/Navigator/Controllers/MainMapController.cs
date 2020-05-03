@@ -19,5 +19,11 @@ namespace Navigator.Controllers
             var model = _mainMapService.GetMainMap(levelId);            
             return View(model);
         }
+
+        public ActionResult SearchPath(Guid startId, Guid finishId)
+        {
+            var path = _mainMapService.GetPath(startId, finishId).Path;
+            return PartialView(path);
+        }
     }
 }

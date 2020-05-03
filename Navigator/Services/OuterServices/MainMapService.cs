@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Abstractions.Enums;
 using Abstractions.Interfaces;
@@ -72,6 +73,12 @@ namespace Services.OuterServices
                 Buildings = buildings
             };
             return model;
+        }
+
+        public PathVm GetPath(Guid startItemId, Guid finishItemId)
+        {
+            // Todo : пока это заглушка
+            return new PathVm() {Path = startItemId.ToString() + finishItemId};
         }
     }
 }
