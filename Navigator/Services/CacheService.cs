@@ -11,9 +11,15 @@ namespace Services
 
         public T Get<T>(Guid id, Func<T> firstGetFunc) where T : BaseSmModel
         {
-            var key = typeof(T).ToString() + id;
+            var key = typeof(T)+":"+ id;
             var result = (T)Cache.Get(key);
-            return result ?? firstGetFunc.Invoke();
+            if (result == null)
+            {
+                result = firstGetFunc.Invoke();
+                Cache.Set(key, result, new CacheItemPolicy());
+            }
+
+            return result;
         }
     }
 }
