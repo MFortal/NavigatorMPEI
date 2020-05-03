@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Web.Mvc;
 using Abstractions.Enums;
 using Navigator.ViewModels;
@@ -50,6 +51,16 @@ namespace Navigator.Controllers
             };
             
             return View(model);
+        }
+
+        // Метод для проверки Ajax-запросов
+        public ActionResult GetLevel(Guid id)
+        {
+            var level = new LevelVm
+            {
+                id = id
+            };
+            return PartialView(level);
         }
     }
 }
