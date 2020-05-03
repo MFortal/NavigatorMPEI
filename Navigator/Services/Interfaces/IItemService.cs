@@ -1,5 +1,6 @@
 ﻿using System;
-using DataLayer.Models.DataModels;
+using System.Collections.Generic;
+using Abstractions.Enums;
 using Services.Models;
 
 namespace Services.Interfaces
@@ -8,6 +9,6 @@ namespace Services.Interfaces
     {
         ItemSm Get(Guid id);
 
-        ItemSm ToSmModel(Item item, LevelSm levelSm = null);
+        IList<ItemSm> Get(LevelSm level, ItemType? type = null);
     }
 }

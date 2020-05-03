@@ -9,11 +9,11 @@ namespace Services
     {
         private static readonly MemoryCache Cache = MemoryCache.Default;
 
-        public T Get<T>(Guid id, Func<Guid, T> firstGetFunc) where T : BaseSmModel
+        public T Get<T>(Guid id, Func<T> firstGetFunc) where T : BaseSmModel
         {
-            var key = nameof(T) + id;
+            var key = typeof(T).ToString() + id;
             var result = (T)Cache.Get(key);
-            return result ?? firstGetFunc.Invoke(id);
+            return result ?? firstGetFunc.Invoke();
         }
     }
 }

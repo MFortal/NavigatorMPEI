@@ -18,11 +18,12 @@ namespace Navigator
         {
             _defaultResolver = defaultResolver;
             
+            ICacheService cacheService = new CacheService();
             ITypeItemService typeItemService = new TypeItemService();
             INodeService nodeService = new NodeService();
-            IBuildingService buildingService = new BuildingService(typeItemService, nodeService);
-            ILevelService levelService = new LevelService(buildingService, typeItemService, nodeService);
-            IItemService itemService = new ItemService(typeItemService, nodeService, levelService);
+            IBuildingService buildingService = new BuildingService(cacheService, typeItemService, nodeService);
+            ILevelService levelService = new LevelService(cacheService, buildingService);
+            IItemService itemService = new ItemService(cacheService, typeItemService, nodeService, levelService);
             IDiscreteMapService discreteMapService = new DiscreteMapService();
 
             _serviceMap.Add(typeof(IBuildingService), buildingService);

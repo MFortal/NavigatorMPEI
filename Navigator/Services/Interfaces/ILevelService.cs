@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using DataLayer.Models.DataModels;
 using Services.Models;
 
 namespace Services.Interfaces
@@ -8,11 +7,8 @@ namespace Services.Interfaces
     public interface ILevelService
     {
         LevelSm Get(Guid id);
+        IList<LevelSm> Get(BuildingSm building);
 
         LevelSm GetDefault();
-
-        IEnumerable<LevelSm> GetForBuilding(Guid buildingId);
-
-        LevelSm ToSmModel(Level level, BuildingSm buildingSm = null);
     }
 }

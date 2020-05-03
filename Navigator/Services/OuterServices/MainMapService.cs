@@ -32,7 +32,7 @@ namespace Services.OuterServices
                 ? _levelService.Get(levelId.Value)
                 : _levelService.GetDefault();
 
-            var levels = _levelService.GetForBuilding(currentLevel.Building.Id)
+            var levels = _levelService.Get(currentLevel.Building)
                 .Select(x => new LevelVm()
                 {
                     Id = x.Id,
@@ -40,12 +40,11 @@ namespace Services.OuterServices
                 })
                 .OrderBy(x => x.Number);
 
-            var border = currentLevel.Items
+            var border = _itemService.Get(currentLevel, ItemType.Border)
                 .First(x => x.TypeItem.Type == ItemType.Border)
                 .Nodes.Select(n => new PointVm(n.X, n.Y));
 
-            var rooms = currentLevel.Items
-                .Where(x => x.TypeItem.Type == ItemType.Room)
+            var rooms = _itemService.Get(currentLevel, ItemType.Room)
                 .Select(x => new ItemVm()
                 {
                     ItemId = x.Id,
@@ -54,8 +53,7 @@ namespace Services.OuterServices
                     Border = x.Nodes.Select(n => new PointVm(n.X, n.Y))
                 });
 
-            var stairs = currentLevel.Items
-                .Where(x => x.TypeItem.Type == ItemType.Stairs)
+            var stairs = _itemService.Get(currentLevel, ItemType.Stairs)
                 .Select(x => new ItemVm()
                 {
                     ItemId = x.Id,
@@ -66,7 +64,8 @@ namespace Services.OuterServices
                 .Select(x => new BuildingVm()
                 {
                     Name = x.Name,
-                    FirstLevelId = x.Levels.FirstOrDefault(l => l.Number == 1)?.Id
+                    FirstLevelId = _levelService.Get(x)
+                                       .FirstOrDefault(l => l.Number == 1)?.Id
                                    ?? throw new ApplicationException("Этаж не найден!")
                 });
 
@@ -99,14 +98,16 @@ namespace Services.OuterServices
             var minLevelNumber = new[] { startLevel, finishLevel }.Select(x => x.Number).Min();
             var maxLevelNumber = new[] { startLevel, finishLevel }.Select(x => x.Number).Max();
 
-            var filteredLevels = building.Levels
+            var filteredLevels = _levelService.Get(building)
                 .Where(x => x.Number >= minLevelNumber && x.Number <= maxLevelNumber)
                 .OrderBy(x => x.Number);
 
-            var nodesForeLevelDictionary = filteredLevels.ToDictionary(x => x, x => x.Items.SelectMany(i => i.Nodes).ToList());
+            var nodesForeLevelDictionary = filteredLevels
+                .ToDictionary(
+                    x => x,
+                    x => _itemService.Get(x).SelectMany(i => i.Nodes).ToList());
             var minMax = _discreteMapService.FindMinMaxCoordinate(nodesForeLevelDictionary);
             var field = new DiscreteMapField(minMax.Item1, minMax.Item2);
-
 
             // Todo : пока это заглушка
             return new PathVm() { Path = startItemId.ToString() + finishItemId };
