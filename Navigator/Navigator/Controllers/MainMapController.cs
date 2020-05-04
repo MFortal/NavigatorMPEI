@@ -1,55 +1,23 @@
 ﻿using System;
-using System.Linq;
 using System.Web.Mvc;
-using Abstractions.Enums;
+using Abstractions.Interfaces;
 using Abstractions.ViewModels;
-using Services.Interfaces;
 
 namespace Navigator.Controllers
 {
     public class MainMapController : Controller
     {
-        private readonly ILevelService _levelService;
+        private readonly IMainMapService _mainMapService;
 
         public MainMapController()
         {
-            _levelService = DependencyResolver.Current.GetService<ILevelService>();
+            _mainMapService = DependencyResolver.Current.GetService<IMainMapService>();
         }
 
         // GET: MainMap
         public ActionResult MainMap()
         {
-            var level = _levelService.GetDefault();
-            var border = level.Items
-                .First(x => x.TypeItem.Type == ItemType.Border)
-                .Nodes.Select(n => new PointVm(n.X, n.Y));
-
-            var rooms = level.Items
-                .Where(x => x.TypeItem.Type == ItemType.Room)
-                .Select(x => new ItemVm()
-                {
-                    ItemId = x.Id,
-                    Number = x.Number,
-                    Description = x.Description,
-                    Border = x.Nodes.Select(n => new PointVm(n.X, n.Y))
-                });
-
-            var stairs = level.Items
-                .Where(x => x.TypeItem.Type == ItemType.Stairs)
-                .Select(x => new ItemVm()
-                {
-                    ItemId = x.Id,
-                    Border = x.Nodes.Select(n => new PointVm(n.X, n.Y))
-                });
-
-            var model = new MainMapVm
-            {
-                CurrentLevelId = level.Id,
-                Border = border,
-                Rooms = rooms,
-                Stairs = stairs
-            };
-            
+            var model = _mainMapService.GetMainMap();
             return View(model);
         }
 
@@ -70,6 +38,12 @@ namespace Navigator.Controllers
                 Description = input1
             };
             return PartialView(model);
+        }
+
+        public ActionResult SearchPath(Guid startId, Guid finishId)
+        {
+            var path = _mainMapService.GetPath(startId, finishId);
+            return PartialView(path);
         }
     }
 }
