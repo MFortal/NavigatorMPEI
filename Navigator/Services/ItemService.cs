@@ -1,7 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using Abstractions.Enums;
 using DataLayer;
-using DataLayer.Models.DataModels;
 using Services.Interfaces;
 using Services.Models;
 
@@ -9,43 +10,62 @@ namespace Services
 {
     public class ItemService : IItemService
     {
+        private readonly ICacheService _cacheService;
         private readonly ITypeItemService _typeItemService;
         private readonly INodeService _nodeService;
         private readonly ILevelService _levelService;
 
-        public ItemService(ITypeItemService typeItemService, INodeService nodeService, ILevelService levelService)
-        {            
+        public ItemService(ICacheService cacheService, ITypeItemService typeItemService, INodeService nodeService, ILevelService levelService)
+        {
             _typeItemService = typeItemService;
             _nodeService = nodeService;
             _levelService = levelService;
+            _cacheService = cacheService;
         }
 
         public ItemSm Get(Guid id)
         {
-            using (var db = new NavigatorContext())
+            ItemSm FirstGetFunc()
             {
-                var item = db.Items.Find(id);
-                if (item == null)
+                using (var db = new NavigatorContext())
                 {
-                    return null;
-                }
+                    var item = db.Items.Find(id);
+                    if (item == null)
+                    {
+                        return null;
+                    }
 
-                return ToSmModel(item);
+                    return new ItemSm()
+                    {
+                        Id = item.Id,
+                        Description = item.Description,
+                        Number = item.Number,
+                        Repair = item.Repair,
+                        Level = _levelService.Get(item.LevelId),
+                        TypeItem = _typeItemService.Get(item.TypeItemId),
+                        Nodes = _nodeService.GetLine(item.NodeId),
+                    };
+                }
             }
+
+            return _cacheService.Get(id, FirstGetFunc);
         }
 
-        public ItemSm ToSmModel(Item item, LevelSm levelSm = null)
+        public IList<ItemSm> Get(LevelSm level, ItemType? type = null)
         {
-            return new ItemSm()
+            using (var db = new NavigatorContext())
             {
-                Id = item.Id,
-                Description = item.Description,
-                Number = item.Number,
-                Repair = item.Repair,
-                Level = levelSm ?? _levelService.Get(item.LevelId),
-                TypeItem = _typeItemService.Get(item.TypeItemId),
-                Nodes = _nodeService.GetLine(item.NodeId),
-            };
+                var query = db.Items.Where(x => x.LevelId == level.Id);
+                if (type.HasValue)
+                {
+                    query = query.Where(x => x.TypeItem.Code == (int)type);
+                }
+
+                return query
+                    .AsEnumerable()
+                    .Select(x => Get(x.Id))
+                    .ToList();
+            }
         }
     }
 }

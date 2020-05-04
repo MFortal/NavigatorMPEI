@@ -8,6 +8,8 @@ namespace Services.Interfaces
     {
         BuildingSm Get(Guid id);
 
-        IEnumerable<BuildingSm> GetAll();
+        BuildingSm GetDefault();
+
+        IList<BuildingSm> GetAll();
     }
 }

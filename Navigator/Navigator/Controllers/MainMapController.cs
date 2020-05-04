@@ -62,5 +62,11 @@ namespace Navigator.Controllers
             };
             return PartialView(level);
         }
+
+        public ActionResult SearchPath(Guid startId, Guid finishId)
+        {
+            var path = _mainMapService.GetPath(startId, finishId);
+            return PartialView(path);
+        }
     }
 }

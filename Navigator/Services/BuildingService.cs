@@ -9,42 +9,45 @@ namespace Services
 {
     public class BuildingService : IBuildingService
     {
-        private readonly ILevelService _levelService;
+        private readonly ICacheService _cacheService;
 
-        public BuildingService(ITypeItemService typeItemService, INodeService nodeService)
+        public BuildingService(ICacheService cacheService, ITypeItemService typeItemService, INodeService nodeService)
         {
-            _levelService = new LevelService(this, typeItemService, nodeService);
+            _cacheService = cacheService;
         }
 
         public BuildingSm Get(Guid id)
         {
-            using (var db = new NavigatorContext())
+            BuildingSm FirstGetFunc()
             {
-                var building = db.Buildings.Find(id);
-                if (building == null)
+                using (var db = new NavigatorContext())
                 {
-                    return null;
+                    var building = db.Buildings.Find(id);
+                    if (building == null)
+                    {
+                        return null;
+                    }
+
+                    return new BuildingSm()
+                    {
+                        Id = building.Id,
+                        Name = building.Name
+                    };
                 }
-
-                var buildingSm = new BuildingSm()
-                {
-                    Id = building.Id,
-                    Name = building.Name
-                };
-
-                var levels = db.Levels.Where(x => x.BuildingId == building.Id);
-                var levelsSm = levels
-                    .AsEnumerable()
-                    .Select(x => _levelService.ToSmModel(x, buildingSm))
-                    .ToList();
-
-                buildingSm.Levels = levelsSm;
-
-                return buildingSm;
             }
+
+            return _cacheService.Get(id, FirstGetFunc);
         }
 
-        public IEnumerable<BuildingSm> GetAll()
+        public BuildingSm GetDefault()
+        {
+            using (var db = new NavigatorContext())
+            {
+                return Get(db.Buildings.First().Id);
+            }            
+        }
+
+        public IList<BuildingSm> GetAll()
         {
             using (var db = new NavigatorContext())
             {

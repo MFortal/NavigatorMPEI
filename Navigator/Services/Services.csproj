@@ -40,6 +40,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Caching" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -49,7 +50,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BuildingService.cs" />
+    <Compile Include="CacheService.cs" />
+    <Compile Include="DiscreteMap\DiscreteVector.cs" />
+    <Compile Include="DiscreteMap\DiscreteMapService.cs" />
     <Compile Include="Interfaces\IBuildingService.cs" />
+    <Compile Include="Interfaces\ICacheService.cs" />
+    <Compile Include="Interfaces\IDiscreteMapService.cs" />
     <Compile Include="Interfaces\IItemService.cs" />
     <Compile Include="Interfaces\ILevelService.cs" />
     <Compile Include="Interfaces\INodeService.cs" />
@@ -58,6 +64,8 @@
     <Compile Include="LevelService.cs" />
     <Compile Include="Models\BaseSmModel.cs" />
     <Compile Include="Models\BuildingSm.cs" />
+    <Compile Include="DiscreteMap\Cell.cs" />
+    <Compile Include="DiscreteMap\DiscreteMapField.cs" />
     <Compile Include="Models\ItemSm.cs" />
     <Compile Include="Models\LevelSm.cs" />
     <Compile Include="Models\NodeSm.cs" />
