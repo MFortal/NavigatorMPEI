@@ -8,18 +8,22 @@
 
         <!--Поле поиска с кнопками-->
         <div class="search-div flex-itm">
-            <div class="input-div">
-                <input type="text" id="search-from" class="search-from" placeholder="Откуда">
-                <button id="change-btn" class="change-btn">
-                    <img src="/Content/img/change.svg" alt="Поменять" class="change-img">
-                </button>
-                <input type="text" id="search-to" class="search-to" placeholder="Куда">
+            @using (Ajax.BeginForm("Get", new AjaxOptions { UpdateTargetId = "primer2" }))
+            {
+                <div class="input-div">
+                    <input type="text" id="search-from" class="search-from" placeholder="Откуда" name="input1">
+                    <button id="change-btn" class="change-btn">
+                        <img src="/Content/img/change.svg" alt="Поменять" class="change-img">
+                    </button>
+                    <input type="text" id="search-to" class="search-to" placeholder="Куда">
+                </div>
+                <div class="btn-div">
+                    <button id="search-btn" class="btn search-btn primary-btn">Поиск</button>
+                    <button id="btn-reset" class="btn reset-btn">Сбросить</button>
+                </div>
+            }
             </div>
-            <div class="btn-div">
-                <button id="search-btn" class="btn search-btn primary-btn">Поиск</button>
-                <button id="btn-reset" class="btn reset-btn">Сбросить</button>
-            </div>
-        </div>
+        <div id="primer2"></div>
     </div>
 </header>
 <main>

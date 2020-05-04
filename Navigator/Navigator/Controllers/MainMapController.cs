@@ -62,5 +62,14 @@ namespace Navigator.Controllers
             };
             return PartialView(level);
         }
+
+        public ActionResult Get(string input1)
+        {
+            var model = new ItemVm
+            {
+                Description = input1
+            };
+            return PartialView(model);
+        }
     }
 }
