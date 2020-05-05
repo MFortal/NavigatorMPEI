@@ -21,16 +21,14 @@ namespace Navigator.Controllers
             return View(model);
         }
 
-        // Метод для проверки Ajax-запросов
-        public ActionResult GetLevel(Guid id)
+        public ActionResult GetMap(Guid? levelId = null)
         {
-            var level = new LevelVm
-            {
-                Id = id
-            };
-            return PartialView(level);
+            var model = _mainMapService.GetMainMap(levelId);
+            return View(model);
         }
 
+        // Метод для проверки Ajax-запросов
+        
         public ActionResult Get(string input1)
         {
             var model = new ItemVm

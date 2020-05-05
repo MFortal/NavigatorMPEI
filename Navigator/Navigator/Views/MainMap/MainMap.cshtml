@@ -26,17 +26,28 @@
         <div id="primer2"></div>
     </div>
 </header>
-<main>
+<main id="main">
     <div class="levels-div">
         <span class="levels-span">Этаж:</span>
-        @for (int i = 1; i < 4; i++)
+        @foreach (var level in Model.Levels)
         {
-            <button class="level-btn" type="submit">
-               @Ajax.ActionLink(i.ToString(), "GetLevel", "MainMap", new { id = Model.CurrentLevelId},
-               new AjaxOptions { UpdateTargetId = "primer" })
-            </button>
+            // Todo : добавить добавление класса, если этажи равны
+            if (level.Id == Model.CurrentLevelId)
+            {
+                <button class="level-btn currentLevel" type="submit">
+                    @Ajax.ActionLink(level.Number.ToString(), "GetMap", "MainMap", new { levelId = level.Id },
+                    new AjaxOptions { UpdateTargetId = "main" })
+                </button>
+            }
+            else
+            {
+                <button class="level-btn" type="submit">
+                    @Ajax.ActionLink(level.Number.ToString(), "GetMap", "MainMap", new { levelId = level.Id },
+                    new AjaxOptions { UpdateTargetId = "main" })
+                </button>
+            }
+
         }
-        <div id="primer"></div>
     </div>
     <!-- <img src="/Content/img/russia.svg" alt="" class="maps"> -->
     <!-- viewBox="0 0 400 400" -->
@@ -50,7 +61,6 @@
             @foreach (var stairs in (Model.Stairs))
             {
                 <polyline points="@stairs.BorderString" />
-
             }
         </svg>
     </div>

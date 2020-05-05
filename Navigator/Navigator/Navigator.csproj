@@ -171,6 +171,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\MainMap\GetNameSearch.cshtml" />
+    <Content Include="Views\MainMap\GetMap.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -183,7 +184,6 @@
       <SubType>Designer</SubType>
     </None>
     <Content Include="Views\MainMap\MainMap.cshtml" />
-    <Content Include="Views\MainMap\GetLevel.cshtml" />
     <Content Include="Scripts\jquery-3.5.0.slim.min.map" />
     <Content Include="Scripts\jquery-3.5.0.min.map" />
     <Content Include="Views\MainMap\SearchPath.cshtml" />

@@ -28,6 +28,7 @@ main {
     width: 85%;
 }
 
+form,
 .search-div,
 .input-div {
     flex-direction: row;
@@ -36,8 +37,12 @@ main {
     align-items: center;
 }
 
+form{
+    width:100%;
+}
 .input-div {
     width: 80%;
+    padding: 10px 10px 5px 0;
 }
 
 .btn-div {
@@ -132,7 +137,7 @@ input {
 }
 
 .level-btn {
-    background-color: #a3a3a3;
+    /*background-color: #a3a3a3;*/
     margin-left: 10px;
     color: #fff;
     font-size: 1.25rem;
@@ -142,7 +147,8 @@ input {
 }
 
     .level-btn:hover {
-        background-color: #797979;
+        background-color: beige;
+        ;
     }
 /* ..Тело */
 
@@ -249,4 +255,8 @@ polyline{
 
 polyline:hover{
     fill: coral;
+}
+
+.currentLevel {
+    background-color: antiquewhite;
 }
