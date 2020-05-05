@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using Abstractions.Enums;
 using Abstractions.Interfaces;
 using Abstractions.ViewModels;
-using DataLayer;
 using Services.DiscreteMap;
 using Services.Interfaces;
-using Services.Models;
 
 namespace Services.OuterServices
 {
@@ -102,12 +99,10 @@ namespace Services.OuterServices
                 .Where(x => x.Number >= minLevelNumber && x.Number <= maxLevelNumber)
                 .OrderBy(x => x.Number);
 
-            var nodesForeLevelDictionary = filteredLevels
-                .ToDictionary(
-                    x => x,
-                    x => _itemService.Get(x).SelectMany(i => i.Nodes).ToList());
-            var minMax = _discreteMapService.FindMinMaxCoordinate(nodesForeLevelDictionary);
+            var items = filteredLevels.SelectMany(x => _itemService.Get(x)).ToList();
+            var minMax = _discreteMapService.FindMinMaxCoordinate(items);
             var field = new DiscreteMapField(minMax.Item1, minMax.Item2);
+            _discreteMapService.CreateWalls(field, items);
 
             field.PrintToFile();
             // Todo : пока это заглушка

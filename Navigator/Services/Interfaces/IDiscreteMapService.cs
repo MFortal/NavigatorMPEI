@@ -10,8 +10,10 @@ namespace Services.Interfaces
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="nodesForLevel">Списки точек, сгруппированых по этажам</param>
+        /// <param name="items">Списки точек, сгруппированых по этажам</param>
         /// <returns>Минимальную точку текущего запроса (радиус-вектор) и максимальную</returns>
-        Tuple<DiscreteVector, DiscreteVector> FindMinMaxCoordinate(IDictionary<LevelSm, List<NodeSm>> nodesForLevel);
+        Tuple<DiscreteVector, DiscreteVector> FindMinMaxCoordinate(IList<ItemSm> items);
+
+        void CreateWalls(DiscreteMapField field, IList<ItemSm> items);
     }
 }

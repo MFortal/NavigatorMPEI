@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using Services.Models;
 
 namespace Services.DiscreteMap
 {
@@ -11,7 +12,7 @@ namespace Services.DiscreteMap
         public DiscreteMapField(DiscreteVector min, DiscreteVector max)
         {
             _radiusVector = min;
-            var sizeRadiusVector = max - min;
+            var sizeRadiusVector = max - min + 1;
             Field = new Cell[sizeRadiusVector.X, sizeRadiusVector.Y, sizeRadiusVector.Level];
             for (int l = 0; l < Field.GetLength(2); l++)
             {
@@ -21,6 +22,33 @@ namespace Services.DiscreteMap
                     {
                         Field[x, y, l] = new Cell();
                     }
+                }
+            }
+        }
+
+        public void AddWall(NodeSm startNode, NodeSm finishNode, int levelNumber)
+        {
+            var startCoordinate = new DiscreteVector(startNode.X, startNode.Y, levelNumber) - _radiusVector;
+            var finishCoordinate = new DiscreteVector(finishNode.X, finishNode.Y, levelNumber) - _radiusVector;
+            var level = startCoordinate.Level;
+
+            var dx = finishCoordinate.X - startCoordinate.X;
+            var dy = finishCoordinate.Y - startCoordinate.Y;
+
+            var x = startCoordinate.X;
+            var y = startCoordinate.Y;
+            while (x != finishCoordinate.X || y != finishCoordinate.Y)
+            {
+                Field[x, y, level].Available = false;                
+
+                // Определяем, по какой оси сдвигаться.
+                if (finishCoordinate.X - x != 0)
+                {
+                    x += dx > 0 ? 1 : -1;
+                }
+                if (finishCoordinate.Y - y != 0)
+                {
+                    y += dy > 0 ? 1 : -1;
                 }
             }
         }
