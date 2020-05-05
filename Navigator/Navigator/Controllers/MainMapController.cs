@@ -29,11 +29,11 @@ namespace Navigator.Controllers
 
         // Метод для проверки Ajax-запросов
         
-        public ActionResult Get(string input1)
+        public ActionResult Get(string one = "1", string two = "2")
         {
             var model = new ItemVm
             {
-                Description = input1
+                Description = one+two
             };
             return PartialView(model);
         }
