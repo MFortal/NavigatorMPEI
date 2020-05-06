@@ -20,6 +20,14 @@ namespace Services
                     list.AddLast(nextSm);
                     node = db.Nodes.Find(node.NextNodeId);
                 }
+
+                var linkListNodeSm = list.First;
+                while (linkListNodeSm?.Next != null)
+                {
+                    linkListNodeSm.Value.NextNode = linkListNodeSm.Next.Value;
+                    linkListNodeSm = linkListNodeSm.Next;
+                }
+
                 return list;
             }
         }
