@@ -58,7 +58,6 @@ namespace Services
                         .Select(x => Get(x.Id))
                         .ToList();
                 }
-
                 return null;
             }
         }

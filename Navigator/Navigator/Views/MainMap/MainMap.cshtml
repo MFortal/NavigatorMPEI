@@ -12,17 +12,17 @@
             {
                 <div class="input-div">
                     <input type="text" id="search-from" class="search-from" placeholder="Откуда" name="one" list="allItems">
-                    <datalist id="allItems">
-                        @foreach (var item in Model.Rooms)
-                        {
-                            <option value="@item.Number"></option>
-                        }
-                    </datalist>
                     <button id="change-btn" class="change-btn">
                         <img src="/Content/img/change.svg" alt="Поменять" class="change-img">
                     </button>
-                    <input type="text" id="search-to" class="search-to" placeholder="Куда" autocomplete="off" name="two" >
+                    <input type="text" id="search-to" class="search-to" placeholder="Куда" autocomplete="off" name="two" list="allItems">
                 </div>
+                <datalist id="allItems">
+                    @foreach (var item in Model.Items)
+                    {
+                        <option value="@item.Number"></option>
+                    }
+                </datalist>
                 <div class="btn-div">
                     <button type="submit" id="search-btn" class="btn search-btn primary-btn">Поиск</button>
                     <button id="btn-reset" class="btn reset-btn">Сбросить</button>

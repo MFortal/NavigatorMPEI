@@ -67,5 +67,20 @@ namespace Services
                     .ToList();
             }
         }
+
+        public IList<ItemSm> GetAll()
+        {
+            using (var db = new NavigatorContext())
+            {
+                if (db.Items.Any())
+                {
+                    return db.Items
+                        .AsEnumerable()
+                        .Select(x => Get(x.Id))
+                        .ToList();
+                }
+                return null;
+            }
+        }
     }
 }

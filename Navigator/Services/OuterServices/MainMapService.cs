@@ -66,6 +66,14 @@ namespace Services.OuterServices
                                    ?? throw new ApplicationException("Этаж не найден!")
                 });
 
+            var items = _itemService.GetAll()
+                .Select(x => new ItemVm()
+                {
+                    ItemId = x.Id,
+                    Number = x.Number
+                })
+                .OrderBy(x => x.Number); ;
+
             var model = new MainMapVm
             {
                 CurrentLevelId = currentLevel.Id,
@@ -73,7 +81,8 @@ namespace Services.OuterServices
                 Rooms = rooms,
                 Stairs = stairs,
                 Levels = levels,
-                Buildings = buildings
+                Buildings = buildings,
+                Items = items
             };
             return model;
         }
