@@ -9,7 +9,6 @@ body {
 /*Шапка*/
 header,
 main {
-    /* border:solid 1px black; */
     margin-bottom: 15px;
 }
 
@@ -26,28 +25,27 @@ main {
 
 .search-div {
     width: 85%;
-}
-
-form,
-.search-div,
-.input-div {
-    flex-direction: row;
-    flex-wrap: wrap;
     justify-content: space-around;
-    align-items: center;
 }
 
-form{
-    width:100%;
+
+form, 
+.input-div {
+    display: flex;
+    justify-content: space-around;
 }
+
+form {
+    width: 100%;
+}
+
 .input-div {
     width: 80%;
-    padding: 10px 10px 5px 0;
+    padding-right: 2%;
 }
 
 .btn-div {
     flex-direction: row;
-    flex-wrap: wrap;
 }
 
 /*Изображения*/
@@ -82,7 +80,7 @@ button {
     box-sizing: border-box;
     border-radius: 2px;
     font-size: 1rem;
-    line-height: 24px;
+    line-height: 20px;
 }
 
 .change-btn {
@@ -95,11 +93,7 @@ button {
     margin-right: 10px;
     color: #fff;
 }
-/* 
-.btn-div,
-.input-div{
-    border:1px solid red;
-} */
+
 
 /* Текстовые поля */
 input {
@@ -109,9 +103,6 @@ input {
     font-size: 1rem;
     line-height: 24px;
     padding: 8px;
-    /* background-repeat: no-repeat;
-    background-position: left 11px center;
-    background-size: 30px 30px; */
     width: 40%;
 }
 /*..Шапка*/
@@ -120,10 +111,6 @@ input {
 .maps {
     width: 100%;
 }
-/* svg{
-    width: 100%;
-    height: 100%;
-} */
 
 .levels-span {
     font-size: 1.75rem;
@@ -137,7 +124,6 @@ input {
 }
 
 .level-btn {
-    /*background-color: #a3a3a3;*/
     margin-left: 10px;
     color: #fff;
     font-size: 1.25rem;
@@ -151,11 +137,6 @@ input {
         ;
     }
 /* ..Тело */
-
-/* Футер */
-/* footer{
-     border:1px solid blue; 
-} */
 
 .footer-div {
     justify-content: space-between;
@@ -177,58 +158,6 @@ input {
         color: #414141;
     }
 /* ..Футер */
-
-
-
-@media (max-width:1200px) {
-    html {
-        font-size: 15px;
-    }
-
-    .input-div {
-        width: 70%;
-    }
-}
-
-@media(max-width:1024px) {
-    html {
-        font-size: 14px;
-    }
-
-    .input-div {
-        width: 100%;
-        padding: 2%;
-    }
-
-    .header-div {
-        flex-direction: column;
-    }
-}
-
-@media(max-width:760px) {
-    html {
-        font-size: 12px;
-    }
-
-    .btn {
-        padding: 5px 10px;
-    }
-
-    .social-links {
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: end;
-    }
-}
-
-/* @media(max-width:){
-    html{
-        font-size: ;
-    }
-} */
-/* path:hover{
-     fill:red;
- } */
 
 .svg-div {
     margin: 1%;
@@ -260,3 +189,49 @@ polyline:hover{
 .currentLevel {
     background-color: antiquewhite;
 }
+
+@media (max-width:1200px) {
+    html {
+        font-size: 15px;
+    }
+}
+
+@media(max-width:1024px) {
+    html {
+        font-size: 14px;
+    }
+
+    .input-div {
+        width: 100%;
+        padding: 2%;
+    }
+
+    .header-div {
+        flex-direction: column;
+    }
+
+    form{
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media(max-width:760px) {
+    html {
+        font-size: 12px;
+    }
+
+    input,
+    .btn {
+        padding: 5px 10px;
+    }
+
+    .social-links {
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: end;
+    }
+}
+
+
+
