@@ -12,5 +12,7 @@ namespace Services.Interfaces
         IList<ItemSm> Get(LevelSm level, ItemType? type = null);
 
         IList<ItemSm> GetAll();
+
+        Guid Get(string number);
     }
 }

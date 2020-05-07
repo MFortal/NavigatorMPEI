@@ -1,7 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Web.Mvc;
 using Abstractions.Interfaces;
-using Abstractions.ViewModels;
 
 namespace Navigator.Controllers
 {
@@ -29,13 +29,12 @@ namespace Navigator.Controllers
 
         // Метод для проверки Ajax-запросов
         
-        public ActionResult Get(string one = "1", string two = "2")
+        public ActionResult Get(List<string> items)
         {
-            var model = new ItemVm
-            {
-                Description = one+two
-            };
-            return PartialView(model);
+            var startId = _mainMapService.GetItemId(items[0]);
+            var finishId = _mainMapService.GetItemId(items[1]);
+
+            return PartialView();
         }
 
         public ActionResult SearchPath(Guid startId, Guid finishId)

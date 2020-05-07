@@ -117,5 +117,10 @@ namespace Services.OuterServices
             // Todo : пока это заглушка
             return new PathVm() { Path = startItemId.ToString() + finishItemId };
         }
+
+        public Guid GetItemId(string number)
+        {
+            return _itemService.Get(number);
+        }
     }
 }

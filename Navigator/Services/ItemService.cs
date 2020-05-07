@@ -68,6 +68,18 @@ namespace Services
             }
         }
 
+        public Guid Get(string number)
+        {
+            using (var db = new NavigatorContext())
+            {
+                var id = db.Items.Where(x => x.Number.ToLower() == number.ToLower().Trim())
+                    .Select(x => x.Id)
+                    .FirstOrDefault();
+
+                return id;
+            }
+        }
+        // Todo: выводить только уникальные значения объектов
         public IList<ItemSm> GetAll()
         {
             using (var db = new NavigatorContext())
@@ -77,6 +89,7 @@ namespace Services
                     return db.Items
                         .AsEnumerable()
                         .Select(x => Get(x.Id))
+                        .Distinct()
                         .ToList();
                 }
                 return null;

@@ -8,5 +8,7 @@ namespace Abstractions.Interfaces
         MainMapVm GetMainMap(Guid? levelId = null);
 
         PathVm GetPath(Guid startItemId, Guid finishItemId);
+
+        Guid GetItemId(string number);
     }
 }
