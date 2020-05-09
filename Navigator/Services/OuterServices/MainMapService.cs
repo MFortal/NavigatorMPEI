@@ -72,7 +72,7 @@ namespace Services.OuterServices
                     ItemId = x.Id,
                     Number = x.Number
                 })
-                .OrderBy(x => x.Number); ;
+                .OrderBy(x => x.Number);
 
             var model = new MainMapVm
             {

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using DataLayer.Models.DataModels;
 
 namespace DataLayer.Models.SourceSeed
@@ -30,6 +29,7 @@ namespace DataLayer.Models.SourceSeed
                 new Node() {X = 540, Y = 90},
                 new Node() {X = 230, Y = 90},
                 new Node() {X = 230, Y = 400},
+                new Node() {X = 130, Y = 400},
             });
 
             // Лестница Ж [1]
@@ -91,7 +91,8 @@ namespace DataLayer.Models.SourceSeed
             {
                 new Node() { X = 240, Y = 60 },
                 new Node() { X = 230, Y = 60 },
-                new Node() { X = 290, Y = 90 },
+                new Node() { X = 230, Y = 90 },
+                new Node() { X = 250, Y = 90 },
                 new Node() { X = 250, Y = 60 },
             });
 
@@ -135,6 +136,7 @@ namespace DataLayer.Models.SourceSeed
                 new Node() {X = 540, Y = 90},
                 new Node() {X = 230, Y = 90},
                 new Node() {X = 230, Y = 400},
+                new Node() {X = 130, Y = 400},
             });
 
             // Кабинет К-102 [11]
