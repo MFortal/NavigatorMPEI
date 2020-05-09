@@ -51,6 +51,7 @@ namespace Services.DiscreteMap
                     y += dy > 0 ? 1 : -1;
                 }
             }
+            Field[x, y, level].Available = false;
         }
 
         public void PrintToFile()
