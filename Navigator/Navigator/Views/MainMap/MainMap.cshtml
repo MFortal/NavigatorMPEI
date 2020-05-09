@@ -8,14 +8,14 @@
 
         <!--Поле поиска с кнопками-->
         <div class="search-div flex-itm">
-            @using (Ajax.BeginForm("Get", new AjaxOptions { UpdateTargetId = "primer2" }))
+            @using (Ajax.BeginForm("SearchPath", new AjaxOptions { UpdateTargetId = "primer2" }))
             {
                 <div class="input-div">
-                    <input type="text" id="search-from" class="search-from" placeholder="Откуда" name="items" list="allItems">
+                    <input type="text" id="search-from" class="search-from" placeholder="Откуда" autocomplete="off" name="fromItem" list="allItems">
                     <button id="change-btn" class="change-btn">
                         <img src="/Content/img/change.svg" alt="Поменять" class="change-img">
                     </button>
-                    <input type="text" id="search-to" class="search-to" placeholder="Куда" autocomplete="off" name="items" list="allItems">
+                    <input type="text" id="search-to" class="search-to" placeholder="Куда" autocomplete="off" name="toItem" list="allItems">
                 </div>
                 <datalist id="allItems">
                     @foreach (var item in Model.Items)

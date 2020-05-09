@@ -37,8 +37,11 @@ namespace Navigator.Controllers
             return PartialView();
         }
 
-        public ActionResult SearchPath(Guid startId, Guid finishId)
+        public ActionResult SearchPath(string fromItem, string toItem)
         {
+            // Todo: подругому получить 
+            var startId = _mainMapService.GetItemId(fromItem);
+            var finishId = _mainMapService.GetItemId(toItem);
             var path = _mainMapService.GetPath(startId, finishId);
             return PartialView(path);
         }
