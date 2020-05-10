@@ -176,9 +176,6 @@ input {
     width: 100%;
 }
 
-svg {
-    border: blueviolet 1px solid;
-}
 
 polygon.border-plg,
 polyline {
