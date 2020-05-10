@@ -21,7 +21,7 @@ namespace Navigator.Controllers
             return View(model);
         }
 
-        public ActionResult GetMap(Guid? levelId = null)
+        public ActionResult GetMapPv(Guid? levelId = null)
         {
             var model = _mainMapService.GetMainMap(levelId);
             return View(model);
@@ -29,13 +29,10 @@ namespace Navigator.Controllers
 
         // Метод для проверки Ajax-запросов
         
-        public ActionResult Get(List<string> items)
-        {
-            var startId = _mainMapService.GetItemId(items[0]);
-            var finishId = _mainMapService.GetItemId(items[1]);
-
-            return PartialView();
-        }
+        //public ActionResult Get(string value, string type)
+        //{
+        //    return PartialView();
+        //}
 
         public ActionResult SearchPath(string fromItem, string toItem)
         {

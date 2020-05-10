@@ -235,3 +235,62 @@ polyline:hover{
 
 
 
+/*эксперимент с появляющимся окном*/
+/* Полигоны магазинов */
+.scheme {
+    /*height: 393px;
+    width: 738px;*/
+    margin: 0 auto;
+    position: relative;
+}
+
+    .scheme svg {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        /*height: 393px;
+        width: 738px;*/
+    }
+
+    .scheme polyline {
+        fill: #FFDBA4;
+        cursor: pointer;
+    }
+
+        /* Цвет - при наведении мышкой и активный */
+        .scheme polyline:hover, #hover {
+            fill: #ffc70b;
+        }
+
+        .scheme polyline.active {
+            fill: #FF8C0B !important;
+        }
+
+/* Названия и подсказки магазинов */
+.scheme-item {
+    position: absolute;
+    cursor: pointer;
+    top: 50%; 
+    left: 50%;
+}
+
+.scheme-name {
+    font-weight: bold;
+    font-size: 10px;
+    text-align: center;
+    line-height: 13px;
+}
+
+.scheme-popup {
+    display: none;
+    border: 1px solid #777;
+    padding: 10px;
+    width: 200px;
+    position: absolute;
+    font-size: 12px;
+    line-height: 14px;
+    background: #fff;
+    z-index: 9999;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    text-align: left;
+}

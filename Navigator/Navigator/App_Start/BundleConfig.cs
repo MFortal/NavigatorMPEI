@@ -8,10 +8,10 @@ namespace Navigator
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/site.css"));
+                      "~/Content/style.css"));
 
             bundles.Add(new StyleBundle("~/Scripts/js").Include(
-                      "~/Scripts/Script.js"));
+                      "~/Scripts/script.js"));
 
             bundles.Add(new StyleBundle("~/Scripts/ajax").Include(
                       "~/Scripts/jquery-3.5.0.js",

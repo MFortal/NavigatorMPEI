@@ -29,49 +29,11 @@
                 </div>
             }
         </div>
-        <div id="primer2"></div>
     </div>
 </header>
-<main id="main">
-    <div class="levels-div">
-        <span class="levels-span">Этаж:</span>
-        @foreach (var level in Model.Levels)
-        {
-            // Todo : добавить добавление класса, если этажи равны
-            if (level.Id == Model.CurrentLevelId)
-            {
-                <button class="level-btn currentLevel" type="submit">
-                    @Ajax.ActionLink(level.Number.ToString(), "GetMap", "MainMap", new { levelId = level.Id },
-                    new AjaxOptions { UpdateTargetId = "main" })
-                </button>
-            }
-            else
-            {
-                <button class="level-btn" type="submit">
-                    @Ajax.ActionLink(level.Number.ToString(), "GetMap", "MainMap", new { levelId = level.Id },
-                    new AjaxOptions { UpdateTargetId = "main" })
-                </button>
-            }
 
-        }
-    </div>
-    <!-- <img src="/Content/img/russia.svg" alt="" class="maps"> -->
-    <!-- viewBox="0 0 400 400" -->
-    <div class="svg-div" id="map">
-        <svg viewBox="525 0 400 400">
-            <polygon class="border-plg" points="@Model.BorderString" stroke="black" />
-            @foreach (var room in (Model.Rooms))
-            {
-                <polyline class="room" points="@room.BorderString" />
-            }
-            @foreach (var stairs in (Model.Stairs))
-            {
-                <polyline points="@stairs.BorderString" />
-            }
-        </svg>
-    </div>
-    <!-- <object type="image/svg+xml" data="/Content/img/russia.svg" id="object"></object> -->
-</main>
+@Html.Partial("GetMapPv")
+
 <footer>
     <div class="footer-div">
         <img src="/Content/img/logo.svg" alt="Логотип" class="logo flex-itm">
@@ -82,4 +44,8 @@
         </div>
     </div>
 </footer>
-<!-- </div> -->
+
+@{
+    //Todo: добавить в bundle
+}
+<script src="https://snipp.ru/cdn/jquery/2.1.1/jquery.min.js"></script>

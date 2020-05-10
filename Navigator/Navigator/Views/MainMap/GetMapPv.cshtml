@@ -1,0 +1,62 @@
+﻿@model Abstractions.ViewModels.MainMapVm
+
+<main id="main">
+    <div class="levels-div">
+        <span class="levels-span">Этаж:</span>
+        @foreach (var level in Model.Levels)
+        {
+            // Todo : добавить добавление класса, если этажи равны
+            if (level.Id == Model.CurrentLevelId)
+            {
+                <button class="level-btn currentLevel" type="submit">
+                    @Ajax.ActionLink(level.Number.ToString(), "GetMapPv", "MainMap", new { levelId = level.Id },
+                    new AjaxOptions { UpdateTargetId = "main" })
+                </button>
+            }
+            else
+            {
+                <button class="level-btn" type="submit">
+                    @Ajax.ActionLink(level.Number.ToString(), "GetMapPv", "MainMap", new { levelId = level.Id },
+                    new AjaxOptions { UpdateTargetId = "main" })
+                </button>
+            }
+
+        }
+    </div>
+
+    <div class="svg-div scheme" id="map">
+        <svg viewBox="525 0 400 400">
+            <polygon class="border-plg" points="@Model.BorderString" stroke="black" />
+            @foreach (var stair in (Model.Stairs))
+            {
+                <polyline class="stair" points="@stair.BorderString" />
+            }
+            @foreach (var room in (Model.Rooms))
+            {
+                <polyline class="room" points="@room.BorderString" data-id="@room.ItemId" />
+
+
+            }
+        </svg>
+
+        @foreach (var room in (Model.Rooms))
+        {
+            <div class="scheme-item" data-id="@room.ItemId">
+
+                @*Отображение названия кабинета*@
+                @*<div class="scheme-name">@room.Number</div>*@
+                <div class="scheme-popup">
+                    <p>
+                        <strong name="value">@room.Number</strong>
+                        <br>
+                        @room.Description
+                    </p>
+                    <button name="from" data-value=@room.Number>Отсюда</button>
+                    <button name="to" data-value=@room.Number>Сюда</button>
+                </div>
+            </div>
+        }
+    </div>
+</main>
+
+
