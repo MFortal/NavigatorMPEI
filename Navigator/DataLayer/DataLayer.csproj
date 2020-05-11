@@ -76,6 +76,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="DataLayer.cd" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
