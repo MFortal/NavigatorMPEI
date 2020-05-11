@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Abstractions.Enums;
 using DataLayer;
+using DataLayer.Models.DataModels;
 using Services.Interfaces;
 using Services.Models;
 
@@ -35,20 +36,22 @@ namespace Services
                         return null;
                     }
 
-                    return new ItemSm()
-                    {
-                        Id = item.Id,
-                        Description = item.Description,
-                        Number = item.Number,
-                        Repair = item.Repair,
-                        Level = _levelService.Get(item.LevelId),
-                        TypeItem = _typeItemService.Get(item.TypeItemId),
-                        Nodes = _nodeService.GetLine(item.NodeId),
-                    };
+                    return ToSmModel(item);
                 }
             }
 
             return _cacheService.Get(id, FirstGetFunc);
+        }
+
+        public ItemSm Get(string number)
+        {
+            using (var db = new NavigatorContext())
+            {
+                var item = db.Items.FirstOrDefault(x => x.Number.ToLower() == number.ToLower().Trim());
+                return item == null 
+                    ? null 
+                    : ToSmModel(item);
+            }
         }
 
         public IList<ItemSm> Get(LevelSm level, ItemType? type = null)
@@ -68,17 +71,6 @@ namespace Services
             }
         }
 
-        public Guid Get(string number)
-        {
-            using (var db = new NavigatorContext())
-            {
-                var id = db.Items.Where(x => x.Number.ToLower() == number.ToLower().Trim())
-                    .Select(x => x.Id)
-                    .FirstOrDefault();
-
-                return id;
-            }
-        }
         // Todo: выводить только уникальные значения объектов
         public IList<ItemSm> GetAll()
         {
@@ -94,6 +86,20 @@ namespace Services
                 }
                 return null;
             }
+        }
+
+        private ItemSm ToSmModel(Item item)
+        {
+            return new ItemSm()
+            {
+                Id = item.Id,
+                Description = item.Description,
+                Number = item.Number,
+                Repair = item.Repair,
+                Level = _levelService.Get(item.LevelId),
+                TypeItem = _typeItemService.Get(item.TypeItemId),
+                Nodes = _nodeService.GetLine(item.NodeId),
+            };
         }
     }
 }

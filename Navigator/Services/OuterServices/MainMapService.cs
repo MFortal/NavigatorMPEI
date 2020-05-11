@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Abstractions.Enums;
 using Abstractions.Interfaces;
@@ -87,10 +88,10 @@ namespace Services.OuterServices
             return model;
         }
 
-        public PathVm GetPath(Guid startItemId, Guid finishItemId)
+        public PathVm GetPath(string startItemStr, string finishItemStr)
         {
-            var startItem = _itemService.Get(startItemId);
-            var finishItem = _itemService.Get(finishItemId);
+            var startItem = _itemService.Get(startItemStr);
+            var finishItem = _itemService.Get(finishItemStr);
 
             var startLevel = startItem.Level;
             var finishLevel = finishItem.Level;
@@ -106,21 +107,70 @@ namespace Services.OuterServices
 
             var filteredLevels = _levelService.Get(building)
                 .Where(x => x.Number >= minLevelNumber && x.Number <= maxLevelNumber)
-                .OrderBy(x => x.Number);
+                .OrderBy(x => x.Number)
+                .ToDictionary(x =>x.Number);
 
-            var items = filteredLevels.SelectMany(x => _itemService.Get(x)).ToList();
+            var items = filteredLevels.Values.SelectMany(x => _itemService.Get(x)).ToList();
             var minMax = _discreteMapService.FindMinMaxCoordinate(items);
             var field = new DiscreteMapField(minMax.Item1, minMax.Item2);
             _discreteMapService.CreateWalls(field, items);
+            _discreteMapService.SetDistanceFromWalls(field);
+            var start = field.GetCell(startItem.Center, startItem.Level.Number);
+            var finish = field.GetCell(finishItem.Center, finishItem.Level.Number);
+            var success = _discreteMapService.StartWave(field, start, finish);
 
-            field.PrintToFile();
-            // Todo : пока это заглушка
-            return new PathVm() { Path = startItemId.ToString() + finishItemId };
+            var path = success
+                ? _discreteMapService.GetBackPath(field, start, finish)
+                : null;
+
+            path = GetKeyCells(path);
+
+            // Т к поле принимало на вход NodeSm, то и возвращяем на выходе их же
+            var pathForLevel = path.GroupBy(x => x.Coordinate.Level)
+                .Select(grp =>
+                {
+                    var levelSm = filteredLevels[field.GetLevelNumber(grp.Key)];
+                    return new PathForLevelVm()
+                    {
+                        Level = new LevelVm()
+                        {
+                            Id = levelSm.Id,
+                            Number = levelSm.Number
+                        },
+                        Path = field.GetNodes(grp)
+                            .Select(n => new PointVm(n.X, n.Y))
+                            .ToList()
+                    };
+                });
+
+            return new PathVm()
+            {
+                FullPath = pathForLevel.ToList()
+            };
         }
 
-        public Guid GetItemId(string number)
+        private IList<Cell> GetKeyCells(IList<Cell> pathCells)
         {
-            return _itemService.Get(number);
+            var keyCells = new List<Cell>();
+            // Установка первой точки
+            var lastCell = pathCells.FirstOrDefault();
+
+            // DisplacementVector - Вектор перемещения за один шаг.
+            // Если он изменился, то это означает поворот пути и точка поворота должна быть сохранена
+            var lastDisplacementVector = new DiscreteVector(0,0,0);
+            foreach (var cell in pathCells)
+            {
+                var newDisplacementVector = cell.Coordinate - lastCell?.Coordinate;
+                if (!lastDisplacementVector.Equals(newDisplacementVector))
+                {
+                    keyCells.Add(lastCell);
+                }
+
+                lastCell = cell;
+                lastDisplacementVector = newDisplacementVector;
+            }
+
+            return keyCells;
         }
     }
 }

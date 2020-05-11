@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Abstractions.Enums;
 using Services.Interfaces;
 using Services.Models;
 
@@ -49,7 +50,88 @@ namespace Services.DiscreteMap
                     field.AddWall(node, node.NextNode, item.Level.Number);
                     node = node.NextNode;
                 }
+
+                // Создание переходов по лестницам
+                if (item.TypeItem.Type == ItemType.Stairs)
+                {
+                    var stairCell = field.GetCell(item.Center, item.Level.Number);
+                    stairCell.IsStair = true;
+                }
             }
+        }
+
+        public void SetDistanceFromWalls(DiscreteMapField field)
+        {
+            var nextDistance = 0;
+            var nextCells = new List<Cell>();
+            foreach (var cell in field.Field)
+            {
+                if (!cell.Available)
+                {
+                    cell.DistanceFromWall = nextDistance;
+                    nextCells.Add(cell);
+                }
+            }
+
+            while (nextCells.Any())
+            {
+                nextDistance++;
+                // Список точек для следующей волны
+                nextCells = nextCells.SelectMany(x => field.GetNeighborhood(x, true).Where(c => !c.DistanceFromWall.HasValue)).Distinct().ToList();
+                foreach (var nextCell in nextCells)
+                {
+                    nextCell.DistanceFromWall = nextDistance;
+                }
+            }
+        }
+
+        public bool StartWave(DiscreteMapField field, Cell startCell, Cell finishCell)
+        {
+            var nextDistance = 0;
+            startCell.Distance = nextDistance;
+            var modifiedCells = new List<Cell>(){startCell};
+            while (modifiedCells.All(x => x != finishCell) && modifiedCells.Any())
+            {
+                nextDistance++;
+                // Список точек для следующей волны
+                var nextCells = modifiedCells.SelectMany(x => field.GetNeighborhood(x, true).Where(c => c.Available)).Distinct();
+
+                var nextModifiedCells = new List<Cell>();
+                foreach (var nextCell in nextCells)
+                {
+                    if (nextCell.Distance.HasValue && nextCell.Distance.Value <= nextDistance)
+                    {
+                        continue;
+                    }
+
+                    nextCell.Distance = nextDistance;
+                    nextModifiedCells.Add(nextCell);
+                }
+
+                modifiedCells = nextModifiedCells;
+            }
+
+            return finishCell.Distance.HasValue;
+        }
+
+        public IList<Cell> GetBackPath(DiscreteMapField field, Cell startCell, Cell finishCell)
+        {
+            var result = new List<Cell>();
+            var currentCell = finishCell;
+            result.Add(currentCell);
+
+            while (currentCell != startCell)
+            {
+                // Поиск минимальной соседней
+                var nextCells = field.GetNeighborhood(currentCell, true).ToList();
+                nextCells = nextCells.Where(x => x.Distance < currentCell.Distance).ToList();
+                var nextCell = nextCells.First(x => x.DistanceFromWall == nextCells.Max(c => c.DistanceFromWall));
+                result.Add(nextCell);
+                currentCell = nextCell;
+            }
+
+            result.Reverse();
+            return result;
         }
     }
 }
