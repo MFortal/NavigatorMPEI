@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="DataLayer.Models.DataModels.BaseTableModel">
+    <Position X="5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\DataModels\BaseTableModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataLayer.Models.DataModels.Building">
+    <Position X="3.25" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\DataModels\Building.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataLayer.Models.DataModels.Item">
+    <Position X="1.25" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAAEAAAAAAADAAAAABAAIAAAEACAA=</HashCode>
+      <FileName>Models\DataModels\Item.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataLayer.Models.DataModels.Level">
+    <Position X="5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Models\DataModels\Level.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataLayer.Models.DataModels.Node">
+    <Position X="6.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAAAAAEAAAAAAAAAAAAAAAAAAAAYAA=</HashCode>
+      <FileName>Models\DataModels\Node.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataLayer.Models.DataModels.TypeItem">
+    <Position X="8.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAgAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\DataModels\TypeItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

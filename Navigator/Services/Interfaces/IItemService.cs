@@ -9,10 +9,10 @@ namespace Services.Interfaces
     {
         ItemSm Get(Guid id);
 
+        ItemSm Get(string number);
+
         IList<ItemSm> Get(LevelSm level, ItemType? type = null);
 
         IList<ItemSm> GetAll();
-
-        Guid Get(string number);
     }
 }

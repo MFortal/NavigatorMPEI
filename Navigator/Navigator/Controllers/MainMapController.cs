@@ -28,6 +28,14 @@ namespace Navigator.Controllers
         }
 
         // Метод для проверки Ajax-запросов
+
+        public ActionResult Get(List<string> items)
+        {
+            //var startId = _mainMapService.GetItemId(items[0]);
+            //var finishId = _mainMapService.GetItemId(items[1]);
+
+            return PartialView();
+        }
         
         //public ActionResult Get(string value, string type)
         //{
@@ -36,10 +44,7 @@ namespace Navigator.Controllers
 
         public ActionResult SearchPath(string fromItem, string toItem)
         {
-            // Todo: подругому получить 
-            var startId = _mainMapService.GetItemId(fromItem);
-            var finishId = _mainMapService.GetItemId(toItem);
-            var path = _mainMapService.GetPath(startId, finishId);
+            var path = _mainMapService.GetPath(fromItem, toItem);
             return PartialView(path);
         }
     }

@@ -15,5 +15,11 @@ namespace Services.Interfaces
         Tuple<DiscreteVector, DiscreteVector> FindMinMaxCoordinate(IList<ItemSm> items);
 
         void CreateWalls(DiscreteMapField field, IList<ItemSm> items);
+
+        void SetDistanceFromWalls(DiscreteMapField field);
+
+        bool StartWave(DiscreteMapField field, Cell startCell, Cell finishCell);
+
+        IList<Cell> GetBackPath(DiscreteMapField field, Cell startCell, Cell finishCell);
     }
 }

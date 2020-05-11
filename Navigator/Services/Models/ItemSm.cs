@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace Services.Models
 {
@@ -14,6 +15,16 @@ namespace Services.Models
 
         public LinkedList<NodeSm> Nodes { get; set; }
 
-        public NodeSm Center { get; set; }
+        public NodeSm Center
+        {
+            get
+            {
+                return new NodeSm()
+                {
+                    X = (Nodes.Select(x => x.X).Max() + Nodes.Select(x => x.X).Min()) / 2,
+                    Y = (Nodes.Select(x => x.Y).Max() + Nodes.Select(x => x.Y).Min()) / 2
+                };
+            }
+        }
     }
 }
