@@ -18,7 +18,7 @@
                     <input type="text" id="search-to" class="search-to" placeholder="Куда" autocomplete="off" name="toItem" list="allItems" required>
                 </div>
                 <datalist id="allItems">
-                    @foreach (var item in Model.Items)
+                    @foreach (var item in Model.AllItems)
                     {
                         <option value="@item.Number"></option>
                     }

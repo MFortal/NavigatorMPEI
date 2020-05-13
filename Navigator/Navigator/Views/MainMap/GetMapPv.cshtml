@@ -3,7 +3,7 @@
 <main id="main">
     <div class="levels-div">
         <span class="levels-span">Этаж:</span>
-        @foreach (var level in Model.Levels)
+        @foreach (var level in Model.AllLevels)
         {
             // Todo : добавить добавление класса, если этажи равны
             if (level.Id == Model.CurrentLevelId)

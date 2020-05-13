@@ -8,9 +8,12 @@ namespace Abstractions.ViewModels
     {
         public Guid CurrentLevelId { get; set; }
 
-        public IEnumerable<LevelVm> Levels { get; set; }
+        public IEnumerable<LevelVm> AllLevels { get; set; }
+
+        public IEnumerable<ItemVm> AllItems { get; set; }
 
         public IEnumerable<PointVm> Border { get; set; }
+
         public string BorderString => string.Join(" ", Border.Select(x => x.ToString()));
 
         public IEnumerable<ItemVm> Rooms { get; set; }
@@ -23,8 +26,7 @@ namespace Abstractions.ViewModels
 
         public IEnumerable<ItemVm> Walls { get; set; }
 
-        public IEnumerable<BuildingVm> Buildings { get; set; }
+        public IEnumerable<BuildingVm> AllBuildings { get; set; }
 
-        public IEnumerable<ItemVm> Items { get; set; }
     }
 }

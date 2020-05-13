@@ -94,6 +94,7 @@ namespace Services.OuterServices
                     ItemId = x.Id,
                     Number = x.Number
                 })
+                .Distinct()
                 .OrderBy(x => x.Number);
 
             var model = new MainMapVm
@@ -102,9 +103,9 @@ namespace Services.OuterServices
                 Border = border,
                 Rooms = rooms,
                 Stairs = stairs,
-                Levels = levels,
-                Buildings = buildings,
-                Items = items,
+                AllLevels = levels,
+                AllBuildings = buildings,
+                AllItems = items,
                 Walls = walls,
                 WcMans = wcMans,
                 WcWomans = wcWomans
