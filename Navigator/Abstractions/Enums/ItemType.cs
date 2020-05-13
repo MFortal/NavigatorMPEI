@@ -5,7 +5,13 @@
         None,
         Border,
         Room,
-        Door,
-        Stairs
+        Stairs,
+        Cashbox,
+        WсWoman,
+        WcMan,
+        Buffet,
+        SnackMachine,
+        CashMachine,
+        Wall
     }
 }

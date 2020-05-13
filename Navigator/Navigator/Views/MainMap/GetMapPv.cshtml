@@ -20,12 +20,11 @@
                     new AjaxOptions { UpdateTargetId = "main" })
                 </button>
             }
-
         }
     </div>
 
     <div class="svg-div scheme" id="map">
-        <svg viewBox = "100 -10 1250 420">
+        <svg viewBox="100 -10 1250 420">
             <polygon class="border-plg" points="@Model.BorderString" stroke="black" />
             @foreach (var stair in (Model.Stairs))
             {
@@ -33,9 +32,22 @@
             }
             @foreach (var room in (Model.Rooms))
             {
-                <polyline class="room" points="@room.BorderString" data-id="@room.ItemId" />
+                <polyline class="pl-item room" points="@room.BorderString" data-id="@room.ItemId" />
+            }
 
+            @foreach (var wall in (Model.Walls))
+            {
+                <polyline points="@wall.BorderString" />
+            }
 
+            @foreach (var wcM in (Model.WcMans))
+            {
+                <polyline class="pl-item wcM" points="@wcM.BorderString" />
+            }
+
+            @foreach (var wcW in (Model.WcWomans))
+            {
+                <polyline class="pl-item wcW" points="@wcW.BorderString" />
             }
         </svg>
 

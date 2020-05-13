@@ -147,6 +147,95 @@ namespace DataLayer.Models.SourceSeed
                     Node = nodes[1].First(),
                     Repair = false
                 },
+
+                // [12]
+                new Item
+                {
+                    Level = levels[1],
+                    TypeItem = itemTypes[0],
+                    Node = nodes[12].First(),
+                    Number = "К-2..",
+                    Description = "Кафедра БИТ",
+                    Repair = false
+                },
+
+                // [13]
+                new Item
+                {
+                    Level = levels[1],
+                    TypeItem = itemTypes[0],
+                    Node = nodes[13].First(),
+                    Number = "К-2..",
+                    Description = "Кафедра БИТ",
+                    Repair = false
+                },
+                                
+                // [14]
+                new Item
+                {
+                    Level = levels[1],
+                    TypeItem = itemTypes[0],
+                    Node = nodes[14].First(),
+                    Number = "К-2..",
+                    Description = "Кафедра БИТ",
+                    Repair = false
+                },
+                                
+                // [15]
+                new Item
+                {
+                    Level = levels[1],
+                    TypeItem = itemTypes[9],
+                    Node = nodes[15].First(),
+                    Repair = false
+                },
+
+                // [16]
+                new Item
+                {
+                    Level = levels[1],
+                    TypeItem = itemTypes[9],
+                    Node = nodes[16].First(),
+                    Repair = false
+                },
+                
+                // [17]
+                new Item
+                {
+                    Level = levels[1],
+                    TypeItem = itemTypes[9],
+                    Node = nodes[17].First(),
+                    Repair = false
+                },
+
+                 // [18]
+                new Item
+                {
+                    Level = levels[1],
+                    TypeItem = itemTypes[5],
+                    Node = nodes[18].First(),
+                    Number = "Туалет (М)",
+                    Repair = false
+                },
+
+                 // [19]
+                new Item
+                {
+                    Level = levels[1],
+                    TypeItem = itemTypes[4],
+                    Node = nodes[19].First(),
+                    Number = "Туалет (Ж)",
+                    Repair = false
+                },
+
+                // [20]
+                new Item
+                {
+                    Level = levels[1],
+                    TypeItem = itemTypes[9],
+                    Node = nodes[20].First(),
+                    Repair = false
+                }
             };
         }
     }

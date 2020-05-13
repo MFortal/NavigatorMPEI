@@ -58,6 +58,27 @@ namespace Services.OuterServices
                     Border = x.Nodes.Select(n => new PointVm(n.X, n.Y))
                 });
 
+            var walls = _itemService.Get(currentLevel, ItemType.Wall)
+                .Select(x => new ItemVm()
+                {
+                    ItemId = x.Id,
+                    Border = x.Nodes.Select(n => new PointVm(n.X, n.Y))
+                });
+            
+            var wcWomans = _itemService.Get(currentLevel, ItemType.WсWoman)
+                .Select(x => new ItemVm()
+                {
+                    ItemId = x.Id,
+                    Border = x.Nodes.Select(n => new PointVm(n.X, n.Y))
+                });
+
+            var wcMans = _itemService.Get(currentLevel, ItemType.WcMan)
+                .Select(x => new ItemVm()
+                {
+                    ItemId = x.Id,
+                    Border = x.Nodes.Select(n => new PointVm(n.X, n.Y))
+                });
+
             var buildings = _buildingService.GetAll()
                 .Select(x => new BuildingVm()
                 {
@@ -83,7 +104,10 @@ namespace Services.OuterServices
                 Stairs = stairs,
                 Levels = levels,
                 Buildings = buildings,
-                Items = items
+                Items = items,
+                Walls = walls,
+                WcMans = wcMans,
+                WcWomans = wcWomans
             };
             return model;
         }
@@ -108,7 +132,7 @@ namespace Services.OuterServices
             var filteredLevels = _levelService.Get(building)
                 .Where(x => x.Number >= minLevelNumber && x.Number <= maxLevelNumber)
                 .OrderBy(x => x.Number)
-                .ToDictionary(x =>x.Number);
+                .ToDictionary(x => x.Number);
 
             var items = filteredLevels.Values.SelectMany(x => _itemService.Get(x)).ToList();
             var minMax = _discreteMapService.FindMinMaxCoordinate(items);
@@ -157,7 +181,7 @@ namespace Services.OuterServices
 
             // DisplacementVector - Вектор перемещения за один шаг.
             // Если он изменился, то это означает поворот пути и точка поворота должна быть сохранена
-            var lastDisplacementVector = new DiscreteVector(0,0,0);
+            var lastDisplacementVector = new DiscreteVector(0, 0, 0);
             foreach (var cell in pathCells)
             {
                 var newDisplacementVector = cell.Coordinate - lastCell?.Coordinate;

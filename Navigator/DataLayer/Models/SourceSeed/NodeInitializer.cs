@@ -82,8 +82,8 @@ namespace DataLayer.Models.SourceSeed
             {
                 new Node() { X = 1250, Y = 90 },
                 new Node() { X = 1230, Y = 90 },
-                new Node() { X = 1230, Y = 190 },
-                new Node() { X = 1250, Y = 190 },
+                new Node() { X = 1230, Y = 110 },
+                new Node() { X = 1250, Y = 110 },
             });
 
             // Кабинет Ж-201 [7]
@@ -148,6 +148,86 @@ namespace DataLayer.Models.SourceSeed
                 new Node() {X = 1150, Y = 90},
                 new Node() {X = 1150, Y = 60},
                 new Node() {X = 1170, Y = 60}
+            });
+
+
+            // 2 этаж К
+            // Кабинет на кафедре [12]
+            result.Add(new[]
+            {
+                new Node() {X = 1290, Y = 40},
+                new Node() {X = 1320, Y = 40},
+                new Node() {X = 1320, Y = 50},
+                new Node() {X = 1290, Y = 50}
+            });
+
+            // Кабинет на кафедре [13]
+            result.Add(new[]
+            {
+                new Node() {X = 1290, Y = 50},
+                new Node() {X = 1320, Y = 50},
+                new Node() {X = 1320, Y = 70},
+                new Node() {X = 1290, Y = 70},
+                new Node() {X = 1290, Y = 60}
+            });
+
+            // Кабинет на кафедре [14]
+            result.Add(new[]
+            {
+                new Node() {X = 1280, Y = 70},
+                new Node() {X = 1320, Y = 70},
+                new Node() {X = 1320, Y = 90},
+                new Node() {X = 1270, Y = 90},
+                new Node() {X = 1270, Y = 70}
+            });
+
+            // Стена [15]
+            result.Add(new[]
+            {
+                new Node() {X = 1270, Y = 90},
+                new Node() {X = 1260, Y = 90}
+            });
+
+            // Стена [16]
+            result.Add(new[]
+            {
+                new Node() {X = 1270, Y = 70},
+                new Node() {X = 1260, Y = 70},
+                new Node() {X = 1260, Y = 60}
+            });
+
+            // Стена [17]
+            result.Add(new[]
+            {
+                new Node() {X = 1260, Y = 40},
+                new Node() {X = 1260, Y = 50}
+            });
+
+            // Туалет м [18]
+            result.Add(new[]
+            {
+                new Node() {X = 1220, Y = 60},
+                new Node() {X = 1230, Y = 60},
+                new Node() {X = 1230, Y = 90},
+                new Node() {X = 1210, Y = 90},
+                new Node() {X = 1210, Y = 60}
+            });
+
+            // Туалет ж [19]
+            result.Add(new[]
+            {
+                new Node() {X = 1200, Y = 60},
+                new Node() {X = 1210, Y = 60},
+                new Node() {X = 1210, Y = 90},
+                new Node() {X = 1190, Y = 90},
+                new Node() {X = 1190, Y = 60}
+            });
+
+            // Стена [20]
+            result.Add(new[]
+            {
+                new Node() {X = 1320, Y = 110},
+                new Node() {X = 1230, Y = 110}
             });
 
             foreach (var nodeArray in result)
