@@ -8,15 +8,21 @@
 
         <!--Поле поиска с кнопками-->
         <div class="search-div flex-itm">
-            @using (Ajax.BeginForm("SearchPath", new AjaxOptions { UpdateTargetId = "primer2" }))
+            @*Форма отправки запроса в метод SearchPath и обновление тега с Id "main"*@
+            @using (Ajax.BeginForm("SearchPath", new AjaxOptions { UpdateTargetId = "main" }))
             {
                 <div class="input-div">
+                    @*Поле для ввода пункта начала построения пути*@
                     <input type="text" id="search-from" class="search-from" placeholder="Откуда" autocomplete="off" name="fromItem" list="allItems" required>
+                    @*Кнопка замены значения одного поля на другое*@
                     <button id="change-btn" class="change-btn">
                         <img src="/Content/img/change.svg" alt="Поменять" class="change-img">
                     </button>
+                    @*Поле для ввода пункта окончания построения пути*@
                     <input type="text" id="search-to" class="search-to" placeholder="Куда" autocomplete="off" name="toItem" list="allItems" required>
                 </div>
+
+                @*Выпадающий список со всеми объектами*@
                 <datalist id="allItems">
                     @foreach (var item in Model.AllItems)
                     {
@@ -24,7 +30,9 @@
                     }
                 </datalist>
                 <div class="btn-div">
+                    @*Кнопка отправки*@
                     <button type="submit" id="search-btn" class="btn search-btn primary-btn">Поиск</button>
+                    @*Кнопка сброса введенных данных*@
                     <button id="btn-reset" class="btn reset-btn">Сбросить</button>
                 </div>
             }

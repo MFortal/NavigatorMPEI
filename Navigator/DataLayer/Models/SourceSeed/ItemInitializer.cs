@@ -154,7 +154,7 @@ namespace DataLayer.Models.SourceSeed
                     Level = levels[1],
                     TypeItem = itemTypes[0],
                     Node = nodes[12].First(),
-                    Number = "К-2..",
+                    Number = "К-204a",
                     Description = "Кафедра БИТ",
                     Repair = false
                 },
@@ -165,7 +165,7 @@ namespace DataLayer.Models.SourceSeed
                     Level = levels[1],
                     TypeItem = itemTypes[0],
                     Node = nodes[13].First(),
-                    Number = "К-2..",
+                    Number = "К-201",
                     Description = "Кафедра БИТ",
                     Repair = false
                 },
@@ -176,7 +176,7 @@ namespace DataLayer.Models.SourceSeed
                     Level = levels[1],
                     TypeItem = itemTypes[0],
                     Node = nodes[14].First(),
-                    Number = "К-2..",
+                    Number = "К-203",
                     Description = "Кафедра БИТ",
                     Repair = false
                 },
@@ -235,7 +235,753 @@ namespace DataLayer.Models.SourceSeed
                     TypeItem = itemTypes[9],
                     Node = nodes[20].First(),
                     Repair = false
-                }
+                },
+
+                //-----------------------------------------
+               // Кабинет К-2 [21]
+                new Item
+                {
+                    Level = levels[1],
+                    TypeItem = itemTypes[0],
+                    Node = nodes[21].First(),
+                    Number = "К-205",
+                    Description = "Описание",
+                    Repair = false
+                },
+
+                // Кабинет К-2 [22]
+                new Item
+                {
+                    Level = levels[1],
+                    TypeItem = itemTypes[0],
+                    Node = nodes[22].First(),
+                    Number = "К-206",
+                    Description = "Описание",
+                    Repair = false
+                },
+
+                // Кабинет К-2 [23]
+                new Item
+                {
+                    Level = levels[1],
+                    TypeItem = itemTypes[0],
+                    Node = nodes[23].First(),
+                    Number = "К-223",
+                    Description = "Описание",
+                    Repair = false
+                },
+
+                // Лестницп К-2 [24]
+                new Item
+                {
+                    Level = levels[1],
+                    TypeItem = itemTypes[2],
+                    Node = nodes[24].First(),
+                    Repair = false
+                },
+
+                // Кабинет К-2 [25]
+                new Item
+                {
+                    Level = levels[1],
+                    TypeItem = itemTypes[0],
+                    Node = nodes[25].First(),
+                    Number = "К-225",
+                    Description = "Описание",
+                    Repair = false
+                },
+
+                // Касса К-2 [26]
+                new Item
+                {
+                    Level = levels[1],
+                    TypeItem = itemTypes[3],
+                    Node = nodes[26].First(),
+                    Number = "Касса",
+                    Repair = false
+                },
+
+                // Кабинет К-2 [27]
+                new Item
+                {
+                    Level = levels[1],
+                    TypeItem = itemTypes[0],
+                    Node = nodes[27].First(),
+                    Number = "К-227",
+                    Description = "Описание",
+                    Repair = false
+                },
+                
+                // Кабинет К-2 [28]
+                new Item
+                {
+                    Level = levels[1],
+                    TypeItem = itemTypes[0],
+                    Node = nodes[28].First(),
+                    Number = "К-228",
+                    Description = "Описание",
+                    Repair = false
+                },
+
+                // Кабинет К-2 [29]
+                new Item
+                {
+                    Level = levels[1],
+                    TypeItem = itemTypes[0],
+                    Node = nodes[29].First(),
+                    Number = "К-229",
+                    Description = "Описание",
+                    Repair = false
+                },
+                
+                // Кабинет К-2 [30]
+                new Item
+                {
+                    Level = levels[1],
+                    TypeItem = itemTypes[0],
+                    Node = nodes[30].First(),
+                    Number = "К-230",
+                    Description = "Описание",
+                    Repair = false
+                },
+                
+                // Кабинет К-2 [31]
+                new Item
+                {
+                    Level = levels[1],
+                    TypeItem = itemTypes[0],
+                    Node = nodes[31].First(),
+                    Number = "К-231",
+                    Description = "Описание",
+                    Repair = false
+                },
+                
+                // Кабинет К-2 [32]
+                new Item
+                {
+                    Level = levels[1],
+                    TypeItem = itemTypes[0],
+                    Node = nodes[32].First(),
+                    Number = "К-232",
+                    Description = "Описание",
+                    Repair = false
+                },
+                
+                // Кабинет К-2 [33]
+                new Item
+                {
+                    Level = levels[1],
+                    TypeItem = itemTypes[0],
+                    Node = nodes[33].First(),
+                    Number = "К-233",
+                    Description = "Описание",
+                    Repair = false
+                },
+                
+                // Кабинет К-2 [34]
+                new Item
+                {
+                    Level = levels[1],
+                    TypeItem = itemTypes[0],
+                    Node = nodes[34].First(),
+                    Number = "К-234",
+                    Description = "Описание",
+                    Repair = false
+                },
+                
+                // Кабинет К-2 [35]
+                new Item
+                {
+                    Level = levels[1],
+                    TypeItem = itemTypes[0],
+                    Node = nodes[35].First(),
+                    Number = "К-235",
+                    Description = "Описание",
+                    Repair = false
+                },
+                
+                // Кабинет К-2 [36]
+                new Item
+                {
+                    Level = levels[1],
+                    TypeItem = itemTypes[0],
+                    Node = nodes[36].First(),
+                    Number = "К-236",
+                    Description = "Описание",
+                    Repair = false
+                },
+                
+                // Кабинет К-2 [37]
+                new Item
+                {
+                    Level = levels[1],
+                    TypeItem = itemTypes[0],
+                    Node = nodes[37].First(),
+                    Number = "К-237",
+                    Description = "Описание",
+                    Repair = false
+                },
+                
+                // Кабинет К-2 [38]
+                new Item
+                {
+                    Level = levels[1],
+                    TypeItem = itemTypes[0],
+                    Node = nodes[38].First(),
+                    Number = "К-238",
+                    Description = "Описание",
+                    Repair = false
+                },
+                
+                // Кабинет К-2 [39]
+                new Item
+                {
+                    Level = levels[1],
+                    TypeItem = itemTypes[0],
+                    Node = nodes[39].First(),
+                    Number = "К-239",
+                    Description = "Описание",
+                    Repair = false
+                },
+                
+                // Кабинет К-2 [40]
+                new Item
+                {
+                    Level = levels[1],
+                    TypeItem = itemTypes[0],
+                    Node = nodes[40].First(),
+                    Number = "К-240",
+                    Description = "Описание",
+                    Repair = false
+                },
+                
+                // Кабинет К-2 [41]
+                new Item
+                {
+                    Level = levels[1],
+                    TypeItem = itemTypes[0],
+                    Node = nodes[41].First(),
+                    Number = "К-241",
+                    Description = "Описание",
+                    Repair = false
+                },
+                
+                // Кабинет К-2 [42]
+                new Item
+                {
+                    Level = levels[1],
+                    TypeItem = itemTypes[0],
+                    Node = nodes[42].First(),
+                    Number = "К-242",
+                    Description = "Описание",
+                    Repair = false
+                },
+                
+                // Кабинет К-2 [43]
+                new Item
+                {
+                    Level = levels[1],
+                    TypeItem = itemTypes[0],
+                    Node = nodes[43].First(),
+                    Number = "К-243",
+                    Description = "Описание",
+                    Repair = false
+                },
+                                
+                // Кабинет К-2 [44]
+                new Item
+                {
+                    Level = levels[1],
+                    TypeItem = itemTypes[0],
+                    Node = nodes[44].First(),
+                    Number = "К-244",
+                    Description = "Описание",
+                    Repair = false
+                },
+                
+                // Кабинет К-2 [45]
+                new Item
+                {
+                    Level = levels[1],
+                    TypeItem = itemTypes[0],
+                    Node = nodes[45].First(),
+                    Number = "К-245",
+                    Description = "Описание",
+                    Repair = false
+                },
+                
+                // Кабинет К-2 [46]
+                new Item
+                {
+                    Level = levels[1],
+                    TypeItem = itemTypes[0],
+                    Node = nodes[46].First(),
+                    Number = "К-246",
+                    Description = "Описание",
+                    Repair = false
+                },
+                
+                // Кабинет К-2 [47]
+                new Item
+                {
+                    Level = levels[1],
+                    TypeItem = itemTypes[0],
+                    Node = nodes[47].First(),
+                    Number = "К-247",
+                    Description = "Описание",
+                    Repair = false
+                },
+                
+                // Кабинет К-2 [48]
+                new Item
+                {
+                    Level = levels[1],
+                    TypeItem = itemTypes[0],
+                    Node = nodes[48].First(),
+                    Number = "К-248",
+                    Description = "Описание",
+                    Repair = false
+                },
+                
+                // Кабинет К-2 [49]
+                new Item
+                {
+                    Level = levels[1],
+                    TypeItem = itemTypes[0],
+                    Node = nodes[49].First(),
+                    Number = "К-249",
+                    Description = "Описание",
+                    Repair = false
+                },
+                
+                // Кабинет К-2 [50]
+                new Item
+                {
+                    Level = levels[1],
+                    TypeItem = itemTypes[0],
+                    Node = nodes[50].First(),
+                    Number = "К-250",
+                    Description = "Описание",
+                    Repair = false
+                },
+                
+                // Кабинет К-2 [52]
+                new Item
+                {
+                    Level = levels[1],
+                    TypeItem = itemTypes[0],
+                    Node = nodes[52].First(),
+                    Number = "К-252",
+                    Description = "Описание",
+                    Repair = false
+                },
+                
+                // Туалет Ж К-2 [53]
+                new Item
+                {
+                    Level = levels[1],
+                    TypeItem = itemTypes[4],
+                    Node = nodes[53].First(),
+                    Repair = false
+                },
+                
+                // Кабинет К-2 [54]
+                new Item
+                {
+                    Level = levels[1],
+                    TypeItem = itemTypes[0],
+                    Node = nodes[54].First(),
+                    Number = "К-254",
+                    Description = "Описание",
+                    Repair = false
+                },
+                
+                // Кабинет К-2 [55]
+                new Item
+                {
+                    Level = levels[1],
+                    TypeItem = itemTypes[0],
+                    Node = nodes[55].First(),
+                    Number = "К-255",
+                    Description = "Описание",
+                    Repair = false
+                },
+                
+                // Кабинет К-2 [56]
+                new Item
+                {
+                    Level = levels[1],
+                    TypeItem = itemTypes[0],
+                    Node = nodes[56].First(),
+                    Number = "К-256",
+                    Description = "Описание",
+                    Repair = false
+                },
+                
+                // Стена [57]
+                new Item
+                {
+                    Level = levels[1],
+                    TypeItem = itemTypes[9],
+                    Node = nodes[57].First(),
+                    Repair = false
+                },
+                
+                // Стена К-2 [58]
+                new Item
+                {
+                    Level = levels[1],
+                    TypeItem = itemTypes[9],
+                    Node = nodes[58].First(),
+                    Repair = false
+                },
+                
+                // Стена К-2 [59]
+                new Item
+                {
+                    Level = levels[1],
+                    TypeItem = itemTypes[9],
+                    Node = nodes[59].First(),
+                    Repair = false
+                },
+                
+                // Лестница К-2 [60]
+                new Item
+                {
+                    Level = levels[1],
+                    TypeItem = itemTypes[0],
+                    Node = nodes[60].First(),
+                    Repair = false
+                },
+                
+                // Кабинет К-2 [61]
+                new Item
+                {
+                    Level = levels[1],
+                    TypeItem = itemTypes[0],
+                    Node = nodes[61].First(),
+                    Number = "Ж-200",
+                    Description = "Описание",
+                    Repair = false
+                },
+                
+                // Кабинет К-2 [62]
+                new Item
+                {
+                    Level = levels[1],
+                    TypeItem = itemTypes[0],
+                    Node = nodes[62].First(),
+                    Number = "Ж-202",
+                    Description = "Описание",
+                    Repair = false
+                },
+                
+                // Кабинет К-2 [63]
+                new Item
+                {
+                    Level = levels[1],
+                    TypeItem = itemTypes[0],
+                    Node = nodes[63].First(),
+                    Number = "Ж-203",
+                    Description = "Описание",
+                    Repair = false
+                },
+                
+                // Кабинет К-2 [64]
+                new Item
+                {
+                    Level = levels[1],
+                    TypeItem = itemTypes[0],
+                    Node = nodes[64].First(),
+                    Number = "Ж-204",
+                    Description = "Описание",
+                    Repair = false
+                },
+                
+                // Кабинет К-2 [65]
+                new Item
+                {
+                    Level = levels[1],
+                    TypeItem = itemTypes[0],
+                    Node = nodes[43].First(),
+                    Number = "Ж-205",
+                    Description = "Описание",
+                    Repair = false
+                },
+
+                // Кабинет К-2 [66]
+                new Item
+                {
+                    Level = levels[1],
+                    TypeItem = itemTypes[0],
+                    Node = nodes[66].First(),
+                    Number = "Ж-206",
+                    Description = "Описание",
+                    Repair = false
+                },
+                
+                // Кабинет К-2 [67]
+                new Item
+                {
+                    Level = levels[1],
+                    TypeItem = itemTypes[0],
+                    Node = nodes[67].First(),
+                    Number = "Ж-207",
+                    Description = "Описание",
+                    Repair = false
+                },               
+                
+                // Кабинет К-2 [68]
+                new Item
+                {
+                    Level = levels[1],
+                    TypeItem = itemTypes[0],
+                    Node = nodes[68].First(),
+                    Number = "Ж-208",
+                    Description = "Описание",
+                    Repair = false
+                },
+                
+                // Кабинет К-2 [69]
+                new Item
+                {
+                    Level = levels[1],
+                    TypeItem = itemTypes[0],
+                    Node = nodes[69].First(),
+                    Number = "И-209",
+                    Description = "Описание",
+                    Repair = false
+                },                
+                
+                // Кабинет К-2 [70]
+                new Item
+                {
+                    Level = levels[1],
+                    TypeItem = itemTypes[0],
+                    Node = nodes[70].First(),
+                    Number = "И-202",
+                    Description = "Описание",
+                    Repair = false
+                },
+                
+                // Кабинет К-2 [71]
+                new Item
+                {
+                    Level = levels[1],
+                    TypeItem = itemTypes[0],
+                    Node = nodes[71].First(),
+                    Number = "И-203",
+                    Description = "Описание",
+                    Repair = false
+                },                
+                
+                // Кабинет К-2 [72]
+                new Item
+                {
+                    Level = levels[1],
+                    TypeItem = itemTypes[0],
+                    Node = nodes[72].First(),
+                    Number = "И-204",
+                    Description = "Описание",
+                    Repair = false
+                },
+                
+                // Кабинет К-2 [73]
+                new Item
+                {
+                    Level = levels[1],
+                    TypeItem = itemTypes[0],
+                    Node = nodes[73].First(),
+                    Number = "И-205",
+                    Description = "Описание",
+                    Repair = false
+                },               
+                
+                // Кабинет К-2 [74]
+                new Item
+                {
+                    Level = levels[1],
+                    TypeItem = itemTypes[0],
+                    Node = nodes[74].First(),
+                    Number = "И-206",
+                    Description = "Описание",
+                    Repair = false
+                },
+                
+                // Кабинет К-2 [75]
+                new Item
+                {
+                    Level = levels[1],
+                    TypeItem = itemTypes[0],
+                    Node = nodes[75].First(),
+                    Number = "И-207",
+                    Description = "Описание",
+                    Repair = false
+                },                
+                
+                // Кабинет К-2 [76]
+                new Item
+                {
+                    Level = levels[1],
+                    TypeItem = itemTypes[0],
+                    Node = nodes[76].First(),
+                    Number = "И-208",
+                    Description = "Описание",
+                    Repair = false
+                },
+                
+                // Кабинет К-2 [77]
+                new Item
+                {
+                    Level = levels[1],
+                    TypeItem = itemTypes[0],
+                    Node = nodes[77].First(),
+                    Number = "И-209",
+                    Description = "Описание",
+                    Repair = false
+                },                
+                
+                // Кабинет К-2 [78]
+                new Item
+                {
+                    Level = levels[1],
+                    TypeItem = itemTypes[0],
+                    Node = nodes[78].First(),
+                    Number = "И-210",
+                    Description = "Описание",
+                    Repair = false
+                },
+                
+                // Кабинет К-2 [79]
+                new Item
+                {
+                    Level = levels[1],
+                    TypeItem = itemTypes[0],
+                    Node = nodes[79].First(),
+                    Number = "И-211",
+                    Description = "Описание",
+                    Repair = false
+                },                
+                
+                // Кабинет К-2 [80]
+                new Item
+                {
+                    Level = levels[1],
+                    TypeItem = itemTypes[0],
+                    Node = nodes[80].First(),
+                    Number = "И-212",
+                    Description = "Описание",
+                    Repair = false
+                },
+                
+                // Кабинет К-2 [81]
+                new Item
+                {
+                    Level = levels[1],
+                    TypeItem = itemTypes[0],
+                    Node = nodes[81].First(),
+                    Number = "И-213",
+                    Description = "Описание",
+                    Repair = false
+                },               
+                
+                // Кабинет К-2 [82]
+                new Item
+                {
+                    Level = levels[1],
+                    TypeItem = itemTypes[0],
+                    Node = nodes[82].First(),
+                    Number = "И-214",
+                    Description = "Описание",
+                    Repair = false
+                },
+                
+                // Кабинет К-2 [83]
+                new Item
+                {
+                    Level = levels[1],
+                    TypeItem = itemTypes[0],
+                    Node = nodes[83].First(),
+                    Number = "И-215",
+                    Description = "Описание",
+                    Repair = false
+                },                
+                
+                // Кабинет К-2 [84]
+                new Item
+                {
+                    Level = levels[1],
+                    TypeItem = itemTypes[0],
+                    Node = nodes[84].First(),
+                    Number = "И-216",
+                    Description = "Описание",
+                    Repair = false
+                },
+                
+                // Кабинет К-2 [85]
+                new Item
+                {
+                    Level = levels[1],
+                    TypeItem = itemTypes[0],
+                    Node = nodes[85].First(),
+                    Number = "И-217",
+                    Description = "Описание",
+                    Repair = false
+                },                
+                
+                // Кабинет К-2 [86]
+                new Item
+                {
+                    Level = levels[1],
+                    TypeItem = itemTypes[0],
+                    Node = nodes[86].First(),
+                    Number = "И-218",
+                    Description = "Описание",
+                    Repair = false
+                },
+                
+                // Кабинет К-2 [87]
+                new Item
+                {
+                    Level = levels[1],
+                    TypeItem = itemTypes[0],
+                    Node = nodes[87].First(),
+                    Number = "И-219",
+                    Description = "Описание",
+                    Repair = false
+                },                
+                
+                // Кабинет К-2 [88]
+                new Item
+                {
+                    Level = levels[1],
+                    TypeItem = itemTypes[0],
+                    Node = nodes[88].First(),
+                    Number = "И-220",
+                    Description = "Описание",
+                    Repair = false
+                },
+                
+                // Кабинет К-2 [89]
+                new Item
+                {
+                    Level = levels[1],
+                    TypeItem = itemTypes[0],
+                    Node = nodes[89].First(),
+                    Number = "И-221",
+                    Description = "Описание",
+                    Repair = false
+                },                
+                
+                // Лестница К-2 [90]
+                new Item
+                {
+                    Level = levels[1],
+                    TypeItem = itemTypes[2],
+                    Node = nodes[90].First(),
+                    Repair = false
+                },
+               
             };
         }
     }

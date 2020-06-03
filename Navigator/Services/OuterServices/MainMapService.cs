@@ -115,35 +115,46 @@ namespace Services.OuterServices
 
         public PathVm GetPath(string startItemStr, string finishItemStr)
         {
+            // Получение id введенных объектов
             var startItem = _itemService.Get(startItemStr);
             var finishItem = _itemService.Get(finishItemStr);
 
+            // Этажи начала и окончания поиска
             var startLevel = startItem.Level;
             var finishLevel = finishItem.Level;
 
+            // Если объкты находятся не в одном здании, то вывести исключение
             if (startLevel.Building != finishLevel.Building)
             {
                 throw new ApplicationException();
             }
             var building = startLevel.Building;
 
+            // Минимальное и максимальное значение этажей
             var minLevelNumber = new[] { startLevel, finishLevel }.Select(x => x.Number).Min();
             var maxLevelNumber = new[] { startLevel, finishLevel }.Select(x => x.Number).Max();
 
+            // Получение всех этажей, находящихся между минимальным и максмальным этажами
             var filteredLevels = _levelService.Get(building)
                 .Where(x => x.Number >= minLevelNumber && x.Number <= maxLevelNumber)
                 .OrderBy(x => x.Number)
                 .ToDictionary(x => x.Number);
 
+            // Все объекты находящиеся на этажах
             var items = filteredLevels.Values.SelectMany(x => _itemService.Get(x)).ToList();
+
+            // Точки начала и окончания волны
             var minMax = _discreteMapService.FindMinMaxCoordinate(items);
+
+            // Построение карты и волны
             var field = new DiscreteMapField(minMax.Item1, minMax.Item2);
             _discreteMapService.CreateWalls(field, items);
             _discreteMapService.SetDistanceFromWalls(field);
             var start = field.GetCell(startItem.Center, startItem.Level.Number);
             var finish = field.GetCell(finishItem.Center, finishItem.Level.Number);
             var success = _discreteMapService.StartWave(field, start, finish);
-
+            
+            // Если волна дошла до точки конца, то собрать его
             var path = success
                 ? _discreteMapService.GetBackPath(field, start, finish)
                 : null;

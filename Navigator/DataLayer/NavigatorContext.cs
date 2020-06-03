@@ -6,6 +6,7 @@ namespace DataLayer
 {
     public class NavigatorContext : DbContext
     {
+        // Передача имени строки подключения в конструктор
         public NavigatorContext() : base("NavigatorConnection")
         {
         }
@@ -16,15 +17,10 @@ namespace DataLayer
         public DbSet<Item> Items { get; set; }
         public DbSet<TypeItem> TypeItems { get; set; }
 
+        // Именование таблиц БД в единственном числе
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
-            //base.OnModelCreating(modelBuilder);
-            //modelBuilder.Entity<Level>().HasIndex(x => x.Name).IsUnique();
-            //modelBuilder.Entity<Building>().HasIndex(x => x.Name).IsUnique();
-            //modelBuilder.Entity<TypeItem>().HasIndex(x => x.Name).IsUnique();
         }
-
-
     }
 }
