@@ -204,37 +204,47 @@ polyline:hover{
 
 @media(max-width:1024px) {
     html {
+        /*Размер шрифта*/
         font-size: 14px;
     }
 
     .input-div {
+        /*Ширина элемента*/
         width: 100%;
+        /*Отступ содержимого от родительского элемента*/
         padding: 2%;
     }
 
     .header-div {
+        /*Расположение объетов друг под другом*/
         flex-direction: column;
     }
 
-    form{
+    form {
         flex-direction: column;
+        /*Выравнивание элементов по линии поперечной оси*/
         align-items: center;
     }
 }
 
 @media(max-width:760px) {
     html {
+        /*Размер шрифта*/
         font-size: 12px;
     }
 
     input,
     .btn {
+        /*Отступ содержимого от родительского элемента*/
         padding: 5px 10px;
     }
 
     .social-links {
+        /*Выстраивание элементов в несколько строк*/
         flex-wrap: wrap;
+        /*Выравнивание элементов по линии поперечной оси*/
         align-items: center;
+        /*Выравниваение элементов в конце*/
         justify-content: end;
     }
 }

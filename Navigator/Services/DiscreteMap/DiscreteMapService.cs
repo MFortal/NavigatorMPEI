@@ -62,10 +62,12 @@ namespace Services.DiscreteMap
 
         public void SetDistanceFromWalls(DiscreteMapField field)
         {
+            // Начальное значение 
             var nextDistance = 0;
             var nextCells = new List<Cell>();
             foreach (var cell in field.Field)
             {
+                // Если ячейка непроходима
                 if (!cell.Available)
                 {
                     cell.DistanceFromWall = nextDistance;
@@ -73,6 +75,7 @@ namespace Services.DiscreteMap
                 }
             }
 
+            // Построение волны
             while (nextCells.Any())
             {
                 nextDistance++;
@@ -87,7 +90,9 @@ namespace Services.DiscreteMap
 
         public bool StartWave(DiscreteMapField field, Cell startCell, Cell finishCell)
         {
+            // Инициализация начального значения волны
             var nextDistance = 0;
+            // Дистанция ячейки 
             startCell.Distance = nextDistance;
             var modifiedCells = new List<Cell>(){startCell};
             while (modifiedCells.All(x => x != finishCell) && modifiedCells.Any())
@@ -107,10 +112,8 @@ namespace Services.DiscreteMap
                     nextCell.Distance = nextDistance;
                     nextModifiedCells.Add(nextCell);
                 }
-
                 modifiedCells = nextModifiedCells;
             }
-
             return finishCell.Distance.HasValue;
         }
 

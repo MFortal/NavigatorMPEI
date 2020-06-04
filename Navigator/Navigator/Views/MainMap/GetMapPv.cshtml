@@ -3,7 +3,7 @@
 <main id="main">
     <div class="levels-div">
         <span class="levels-span">Этаж:</span>
-        @foreach (var level in Model.Levels)
+        @foreach (var level in Model.AllLevels)
         {
             // Todo : добавить добавление класса, если этажи равны
             if (level.Id == Model.CurrentLevelId)
@@ -15,17 +15,25 @@
             }
             else
             {
+                //Кнопка этажа
                 <button class="level-btn" type="submit">
                     @Ajax.ActionLink(level.Number.ToString(), "GetMapPv", "MainMap", new { levelId = level.Id },
                     new AjaxOptions { UpdateTargetId = "main" })
                 </button>
             }
+        }
 
+        @for(int i=3;i<6;i++)
+        {
+            <button class="level-btn" type="submit">
+                @Ajax.ActionLink(i.ToString(), "GetMapPv", "MainMap",
+               new AjaxOptions { UpdateTargetId = "main" })
+                </button>
         }
     </div>
 
     <div class="svg-div scheme" id="map">
-        <svg viewBox = "100 -10 1250 420">
+        <svg viewBox="100 -10 1250 420">
             <polygon class="border-plg" points="@Model.BorderString" stroke="black" />
             @foreach (var stair in (Model.Stairs))
             {
@@ -33,10 +41,24 @@
             }
             @foreach (var room in (Model.Rooms))
             {
-                <polyline class="room" points="@room.BorderString" data-id="@room.ItemId" />
-
-
+                <polyline class="pl-item room" points="@room.BorderString" data-id="@room.ItemId" />
             }
+
+            @foreach (var wall in (Model.Walls))
+            {
+                <polyline points="@wall.BorderString" />
+            }
+
+            @foreach (var wcM in (Model.WcMans))
+            {
+                <polyline class="pl-item wcM" points="@wcM.BorderString" />
+            }
+
+            @foreach (var wcW in (Model.WcWomans))
+            {
+                <polyline class="pl-item wcW" points="@wcW.BorderString" />
+            }
+            <polyline class="path" points=""/>
         </svg>
 
         @foreach (var room in (Model.Rooms))
