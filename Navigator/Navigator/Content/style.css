@@ -170,7 +170,7 @@ a {
     text-decoration: none;
     font-size: 1.5rem;
     color: #5e5e5e;
-    margin: 10px;
+    margin: 30px;
 }
 
     .social-link:hover {
@@ -189,14 +189,6 @@ polyline {
     fill: none;
     stroke: rgb(75, 75, 75);
     stroke-width: 2px;
-}
-
-polyline{
-    stroke-width: 1px;
-}
-
-polyline:hover{
-    fill: coral;
 }
 
 .currentLevel {
@@ -274,18 +266,20 @@ polyline:hover{
     }
 
     .scheme polyline {
-        fill: #FFDBA4;
+        
         cursor: pointer;
     }
-
+.room {
+    fill: DodgerBlue;
+}
         /* Цвет - при наведении мышкой и активный */
-        .scheme polyline:hover, #hover {
-            fill: #ffc70b;
-        }
+.scheme polyline:hover, #hover {
+    fill: RoyalBlue;
+}
 
-        .scheme polyline.active {
-            fill: #FF8C0B !important;
-        }
+.scheme polyline.active {
+    fill: MediumSlateBlue !important;
+}
 
 /* Названия и подсказки магазинов */
 .scheme-item {
@@ -318,7 +312,7 @@ polyline:hover{
 }
 
     .scheme-popup button {
-        background-color: #4CAF50; /* Green */
+        background-color: #4CAF50; 
         border: none;
         color: white;
         padding: 5px 10px;
@@ -327,3 +321,13 @@ polyline:hover{
         display: inline-block;
         font-size: 14px;
     }
+
+.stairs {
+    fill: aliceblue;
+    /*fill: url(#stairs);*/
+}
+
+.path{
+    stroke:red;
+    stroke-width:3;
+}

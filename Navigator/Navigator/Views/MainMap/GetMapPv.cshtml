@@ -37,11 +37,13 @@
             <polygon class="border-plg" points="@Model.BorderString" stroke="black" />
             @foreach (var stair in (Model.Stairs))
             {
-                <polyline class="stair" points="@stair.BorderString" />
+                <polyline class="stairs" points="@stair.BorderString" />
+                <image xlink:href="https://svgsilh.com/svg/44066-795548.svg" width="@stair.Width" height="@stair.Height" x="@stair.MinX" y="@stair.MinY" />
             }
+
             @foreach (var room in (Model.Rooms))
             {
-                <polyline class="pl-item room" points="@room.BorderString" data-id="@room.ItemId" />
+                <polyline class="pl-item room" points="@room.BorderString" data-id="@room.ItemId" fill="url(#pattern2)" />
             }
 
             @foreach (var wall in (Model.Walls))
@@ -58,7 +60,10 @@
             {
                 <polyline class="pl-item wcW" points="@wcW.BorderString" />
             }
-            <polyline class="path" points=""/>
+            <polyline class="path" points="" />
+
+            @*<image xlink:href="https://svgsilh.com/svg/44066-795548.svg" width="20" height="30" x="210" y="80"></image>*@
+
         </svg>
 
         @foreach (var room in (Model.Rooms))
