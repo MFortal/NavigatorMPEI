@@ -4,6 +4,6 @@
 Построение пути осуществляется с помощью алгоритам Ли.  
 
 ## Стек
-С#, SQL, JS, Ajax, HTML, CSS, EntityFramework, MVC 
+С#, MS SQL, JS, Ajax, HTML, CSS, EntityFramework, MVC 
 
 #### Последняя веточка https://github.com/MFortal/NavigatorMPEI/tree/develop
